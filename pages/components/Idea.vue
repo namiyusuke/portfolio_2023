@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import type { MicroCMSImage } from "microcms-js-sdk";
 type Idea = {

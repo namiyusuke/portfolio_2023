@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ScrollTrigger from "gsap/ScrollTrigger";
-import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
 import Hero from "./components/Hero.vue";
 import Idea from "./components/Idea.vue";

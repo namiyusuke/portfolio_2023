@@ -49,9 +49,10 @@ const { data } = await useMicroCMSGetList<Idea>({
 
 // =============================
 // Lenis
-import ScrollTrigger from "gsap/ScrollTrigger";
-import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
+gsap.registerPlugin(ScrollTrigger);
 /**
  * イベントリスナー
  */
