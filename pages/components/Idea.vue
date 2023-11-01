@@ -58,8 +58,10 @@ const { data } = await useMicroCMSGetList<Idea>({
             <!-- idea__item -->
           </ul>
           <!-- idea__list -->
-          <div class="idea__button">
-            <p><NuxtLink to="/idea">view more</NuxtLink></p>
+          <div>
+            <div class="idea__button">
+              <p><NuxtLink to="/idea">view more</NuxtLink></p>
+            </div>
           </div>
         </div>
       </div>
