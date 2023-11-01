@@ -10,7 +10,7 @@ type Idea = {
 };
 const { data } = await useMicroCMSGetList<Idea>({
   endpoint: "idea",
-  queries: { limit: 6 },
+  queries: { limit: 8 },
 });
 // if (process.browser) {
 //   const targets = document.querySelectorAll(".js-parallax");
@@ -115,11 +115,24 @@ const { data } = await useMicroCMSGetList<Idea>({
   /* color: #fff; */
   font-size: calc(24 / 16 * 1rem);
 }
+.idea__item figure {
+  position: relative;
+}
+.idea__item figure::after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: var(--color-green);
+  mix-blend-mode: hue;
+}
 @media screen and (min-width: 768px) {
   .idea__inner {
     padding-left: 241px;
     flex-shrink: 0;
-    padding: 102px 230px 166px 240px;
+    padding: 102px 360px 166px 360px;
   }
   .idea__list {
     display: grid;
@@ -145,9 +158,9 @@ const { data } = await useMicroCMSGetList<Idea>({
 }
 .js-parallax {
   /* width: 363px; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
-.idea__item img {
+/* .idea__item img {
   transform: translateX(calc(var(--scroll-progress) * -100px));
-}
+} */
 </style>

@@ -522,6 +522,9 @@ button:focus-visible {
   margin-bottom: 12px;
   font-family: "Italiana", serif;
   font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-white);
+  /* text-stroke: 2px #000; */
 }
 @media screen and (min-width: 768px) {
   .scrollBar {
@@ -558,7 +561,12 @@ body::-webkit-scrollbar,
 }
 .section3,
 .section4 {
-  background: linear-gradient(109deg, rgba(60, 103, 84, 0.7) 11.82%, rgba(60, 103, 84, 0) 82.68%);
+  background: radial-gradient(
+    62.49% 42.49% at 7.01% 12.22%,
+    rgba(60, 103, 84, 0.7) 0%,
+    rgba(60, 103, 84, 0.21) 65.63%,
+    rgba(60, 103, 84, 0) 100%
+  );
   /* width: 100vw; */
 }
 .l-wrapper {
@@ -584,10 +592,15 @@ body::-webkit-scrollbar,
     /* height: 100vh; */
     display: grid;
     place-items: center;
-    background: linear-gradient(109deg, rgba(60, 103, 84, 0.7) 11.82%, rgba(60, 103, 84, 0) 82.68%);
+    background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%);
   }
   .section2 {
-    background: linear-gradient(109deg, rgba(60, 103, 84, 0.7) 11.82%, rgba(60, 103, 84, 0) 82.68%);
+    background: radial-gradient(
+      62.49% 42.49% at 7.01% 12.22%,
+      rgba(60, 103, 84, 0.7) 0%,
+      rgba(60, 103, 84, 0.21) 65.63%,
+      rgba(60, 103, 84, 0) 100%
+    );
     /* width: 100vw; */
     overflow: hidden;
     /* margin-bottom: ; */

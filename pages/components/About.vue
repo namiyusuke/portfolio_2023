@@ -41,9 +41,11 @@
   width: 180px;
   height: 180px;
   content: "";
+
   position: relative;
   margin: 0 auto;
-  padding-top: 100px;
+  margin-top: 100px;
+  /* padding-top: 100px; */
   /* background-color: #e0e9ff; */
 }
 @media screen and (min-width: 768px) {
@@ -55,12 +57,13 @@
   }
   .about__wrapper {
     height: 100%;
-    padding: 102px 231px 202px 237px;
+    padding: 102px 360px 202px 360px;
   }
   .about__left {
     width: calc(572 / 1440 * 100vw);
   }
   .about__right {
+    margin-top: 0px;
     width: 380px;
     height: 380px;
     /* content: "";
@@ -139,7 +142,8 @@
   background-color: black;
   opacity: 0.4;
 } */
-
+@media screen and (min-width: 768px) {
+}
 .circle__container__inner {
   position: absolute;
   left: 50%;
@@ -156,13 +160,18 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 32vh;
-  height: 32vh;
+  width: 20vh;
+  height: 20vh;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 50%;
   will-change: transform;
 }
-
+@media screen and (min-width: 768px) {
+  .circle {
+    width: 32vh;
+    height: 32vh;
+  }
+}
 .sticky__section {
   position: relative;
   width: 100%;
@@ -187,10 +196,13 @@ if (process.browser) {
 
     let width = document.querySelector(".about__right").clientWidth;
     let height = document.querySelector(".about__right").clientHeight;
-    console.log(width);
+
     let x = 0;
     let y = 0;
-
+    const maxX = 380;
+    const maxY = 380;
+    let xDirection = 1;
+    let yDirection = 1;
     function lerp(start, end, t) {
       return start * (1 - t) + end * t;
     }
@@ -199,10 +211,23 @@ if (process.browser) {
       const rect = e.target.getBoundingClientRect();
       x = e.clientX - rect.left;
       y = e.clientY - rect.top;
-      console.log(x);
     });
 
     function animate() {
+      console.log(x);
+      console.log(y);
+      // Update x and y based on direction
+      x += 2 * xDirection; // You can adjust the increment value
+      y += 2 * yDirection; // You can adjust the increment value
+
+      // Change direction when reaching the boundaries
+      if (x >= maxX || x <= 0) {
+        xDirection *= -1;
+      }
+      if (y >= maxY || y <= 0) {
+        yDirection *= -1;
+      }
+
       // Animate circles
       positions.circleOne.x = lerp(positions.circleOne.x, (x - width / 2) * 0.6, 0.1);
       positions.circleOne.y = lerp(positions.circleOne.y, (y - height / 2) * 0.6, 0.1);

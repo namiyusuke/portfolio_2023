@@ -50,7 +50,7 @@ console.log(data);
 }
 @media screen and (min-width: 768px) {
   .projects__wrapper {
-    padding: 102px 231px 202px 237px;
+    padding: 102px 360px 202px 360px;
   }
   .projects__item + .projects__item {
     margin-top: calc(0 / 16 * 1rem);
