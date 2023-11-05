@@ -21,8 +21,18 @@ export default defineNuxtConfig({
     // mode: process.env.NODE_ENV === "production" ? "server" : "all",
     serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
     apiKey: process.env.MICROCMS_API_KEY,
+    target: "all",
   },
-
+  // runtimeConfig: {
+  //   apiKey: "60bKCnTtR4sKY4sBzxQLZOn4NBiiTnZqBhB3",
+  //   // serviceDomain: SERVICE_DOMAIN,
+  // },
+  // runtimeConfig: {
+  //   // serverEnv: "serverValue",
+  //   public: {
+  //     clientEnv: process.env.MICROCMS_API_KEY,
+  //   },
+  // },
   // app: {
   //   pageTransition: {
   //     name: "fade",
