@@ -112,7 +112,7 @@
 </style>
 <script setup lang="ts">
 useHead({
-  title: "My App",
+  title: "portfolio-nami",
   meta: [{ name: "description", content: "My amazing site." }],
 });
 // definePageMeta({

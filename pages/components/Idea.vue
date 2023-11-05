@@ -47,7 +47,7 @@ const { data } = await useMicroCMSGetList<Idea>({
     <div class="l-wrapper">
       <div class="idea__inner">
         <div class="heading__line">
-          <h2 class="heading">Idea</h2>
+          <h2 class="heading">idea</h2>
         </div>
         <div class="idea__body">
           <ul class="idea__list">
@@ -87,6 +87,7 @@ const { data } = await useMicroCMSGetList<Idea>({
   animation: hoverPicCard 1s ease-out running;
 }
 .idea__button a {
+  font-family: "Italiana", serif;
   color: transparent;
   -webkit-background-clip: text;
   background-image: linear-gradient(125deg, #fff 40%, var(--color-green) 50%, #fff 60%);
@@ -125,7 +126,7 @@ const { data } = await useMicroCMSGetList<Idea>({
 .idea__item figure {
   position: relative;
 }
-.idea__item figure::after {
+/* .idea__item figure::after {
   position: absolute;
   top: 0;
   left: 0;
@@ -134,7 +135,7 @@ const { data } = await useMicroCMSGetList<Idea>({
   height: 100%;
   background: var(--color-green);
   mix-blend-mode: hue;
-}
+} */
 @media screen and (min-width: 768px) {
   .idea__inner {
     padding-left: 241px;
@@ -153,8 +154,8 @@ const { data } = await useMicroCMSGetList<Idea>({
     margin-top: 0;
   }
   .idea__item figure {
-    width: calc(var(--vh) * 59.21 - 160px);
-    height: calc(var(--vh) * 40.78 - 116px);
+    width: min(calc(var(--vh) * 59.21 - 160px), 363px);
+    height: min(calc(var(--vh) * 40.78 - 116px), 250px);
     aspect-ratio: 363/250;
     overflow: hidden;
   }

@@ -7,7 +7,7 @@ type aaa = {
 };
 const { data } = await useMicroCMSGetList<aaa>({
   endpoint: "works",
-  queries: { limit: 3 },
+  queries: { limit: 4 },
 });
 console.log(data);
 </script>
@@ -124,10 +124,28 @@ console.log(data);
     column-gap: 30px;
   }
   .projects__item figure {
-    width: calc(var(--vh) * 41.472);
-    height: calc(var(--vh) * 58.5276);
+    width: min(calc(var(--vh) * 41.472), 338px);
+    height: min(calc(var(--vh) * 58.5276), 477px);
     aspect-ratio: 363/250;
     overflow: hidden;
+    position: relative;
+  }
+  .projects__item figure::before,
+  .idea__item figure::after {
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    mix-blend-mode: saturation;
+    transition: all 0.5s ease;
+  }
+  .projects__item a:hover figure::before,
+  .idea__item a:hover figure::after {
+    background: transparent;
   }
 }
 

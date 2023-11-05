@@ -150,6 +150,23 @@ onMounted(() => {
     });
   });
 });
+// if (process.browser) {
+//   const section2 = document.querySelector(".section2");
+//   const items = document.querySelectorAll(".idea__item");
+//   gsap.to(".bg", {
+//     duration: 4,
+//     // zIndex: 0,
+//     background:
+//       "radial-gradient(62.49% 42.49% at 7.01% 12.22%,rgba(60, 103, 84, 0.7) 0%,rgba(60, 103, 84, 0.21) 65.63%,rgba(60, 103, 84, 0) 100%)",
+//     // ease: "ease",
+//     scrollTrigger: {
+//       trigger: section2,
+//       start: "left center",
+//       horizontal: true,
+//       toggleActions: "play none none reverse",
+//     },
+//   });
+// }
 </script>
 
 <template>
@@ -159,6 +176,7 @@ onMounted(() => {
       <div class="flex">
         <main :style="{ '--scroll-progress': progress }">
           <div class="scrollBar scrolling" id="ScrollBar">
+            <div class="bg"></div>
             <div class="scrollBar_track"><div class="scrollBar_progress"></div></div>
             <!-- <div class="scrollBar_arrow"><div class="arrow">→</div></div> -->
           </div>
@@ -550,7 +568,8 @@ button:focus-visible {
   color: var(--color-white);
   transform: translate(0%, 100%);
   opacity: 0;
-
+  position: relative;
+  z-index: 1;
   /* text-stroke: 2px #000; */
 }
 .heading__line {
@@ -662,4 +681,13 @@ body::-webkit-scrollbar,
   transform: translate3d(-100%, 0, 0);
   pointer-events: none;
 }
+/* .bg {
+  position: fixed;
+  z-index: -4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%);
+} */
 </style>

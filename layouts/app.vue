@@ -47,7 +47,7 @@ const toggle = () => {
     </header>
   </div>
   <slot />
-  <footer>
+  <footer class="footer">
     <p class="footer__copy">@2023 Yusuke Namikawa</p>
   </footer>
 </template>
@@ -207,5 +207,10 @@ const toggle = () => {
   color: var(--color-white);
   text-align: center;
   padding-bottom: 14px;
+}
+@media screen and (min-width: 768px) {
+  .footer {
+    display: none;
+  }
 }
 </style>

@@ -1,5 +1,7 @@
 <template>
   <div class="section4" id="about">
+    <p class="about__decorate1">animation</p>
+    <p class="about__decorate2">interaction interaction interaction</p>
     <div class="l-wrapper">
       <div class="about__wrapper">
         <div class="heading__line">
@@ -40,6 +42,7 @@
 <style>
 /* about  */
 .about__wrapper {
+  overflow: hidden;
   padding: 90px 0px 260px 0px;
 }
 .about__right {
@@ -188,6 +191,31 @@
   justify-content: center;
   flex-direction: column;
 }
+.about__decorate1,
+.about__decorate2,
+.about__decorate3 {
+  font-family: Italiana, serif;
+  position: absolute;
+  z-index: -1;
+}
+.about__decorate1 {
+  -webkit-text-stroke: 1px var(--color-green);
+  top: -30px;
+  color: transparent;
+  font-size: 10vw;
+  left: 60px;
+  transform: scale(-1);
+}
+/* .about__decorate2 {
+  -webkit-text-stroke: 1px var(--color-white);
+  bottom: 30px;
+  opacity: 0.5;
+  color: transparent;
+  font-size: 7vw;
+  right: -800px;
+  overflow: hidden;
+  transform: scale(-1);
+} */
 </style>
 <script setup>
 if (process.browser) {
