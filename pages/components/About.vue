@@ -11,10 +11,12 @@
           <div class="about__left">
             <h3 class="about__name">Yusuke Namikawa <span class="about__ja">並河祐輔</span></h3>
             <div class="about__text">
-              <span class="u-wbr">1993年京都府市生まれ。大学卒業後、社会福祉士としての経験を積んだのち、</span>
+              <span class="u-wbr">大学にて心理学を学びのちに専門学校を卒業後、社会福祉士として児童養護施設で働く</span>
               <span class="u-wbr">2021年10月より制作会社でフロントエンドエンジニアとして勤務。</span>
-              <span class="u-wbr"> 2023年11月よりアコーダー株式会社に所属。</span>
-              <span class="u-wbr">自主制作チーム「Attcraft」実装担当。</span>
+              <span class="u-wbr"
+                >得意なこと・できること：jsやcssを用いたアニメーション・インタラクション、マークアップ</span
+              >
+              <span class="u-wbr">趣味：ボルダリングや筋トレ、サウナ、料理</span>
               <div class="about__snsWrapper">
                 <p class="about__snsItem"><a href="https://twitter.com/yusuke_nm" target="_blank">X</a></p>
                 <p class="about__snsItem"><a href="https://codepen.io/nami__nami" target="_blank">Codepen</a></p>
