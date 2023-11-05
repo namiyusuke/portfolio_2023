@@ -2,7 +2,9 @@
   <div class="section4" id="about">
     <div class="l-wrapper">
       <div class="about__wrapper">
-        <h2 class="heading">about</h2>
+        <div class="heading__line">
+          <h2 class="heading">about</h2>
+        </div>
         <div class="about__flex">
           <div class="about__left">
             <h3 class="about__name">Yusuke Namikawa <span class="about__ja">並河祐輔</span></h3>
@@ -11,7 +13,10 @@
               <span class="u-wbr">2021年10月より制作会社でフロントエンドエンジニアとして勤務。</span>
               <span class="u-wbr"> 2023年11月よりアコーダー株式会社に所属。</span>
               <span class="u-wbr">自主制作チーム「Attcraft」実装担当。</span>
-              <p class="about__snsItem"><a href="#" target="_blank">X</a></p>
+              <div class="about__snsWrapper">
+                <p class="about__snsItem"><a href="https://twitter.com/yusuke_nm" target="_blank">X</a></p>
+                <p class="about__snsItem"><a href="https://codepen.io/nami__nami" target="_blank">Codepen</a></p>
+              </div>
             </div>
           </div>
           <div class="about__right">
@@ -41,10 +46,9 @@
   width: 180px;
   height: 180px;
   content: "";
-
   position: relative;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 140px;
   /* padding-top: 100px; */
   /* background-color: #e0e9ff; */
 }
@@ -53,7 +57,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    column-gap: 150px;
+    column-gap: 60px;
   }
   .about__wrapper {
     height: 100%;
@@ -69,6 +73,10 @@
     /* content: "";
     position: relative; */
     /* background-color: #e0e9ff; */
+  }
+  .about__snsWrapper {
+    display: flex;
+    column-gap: 28px;
   }
 }
 
@@ -109,6 +117,7 @@
 @media screen and (min-width: 768px) {
   .about__snsItem {
     margin-top: calc(32 / 16 * 1rem);
+    min-width: 170px;
     text-align: start;
   }
   .about__snsItem a {
@@ -214,8 +223,6 @@ if (process.browser) {
     });
 
     function animate() {
-      console.log(x);
-      console.log(y);
       // Update x and y based on direction
       x += 2 * xDirection; // You can adjust the increment value
       y += 2 * yDirection; // You can adjust the increment value

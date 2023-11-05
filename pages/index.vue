@@ -90,6 +90,31 @@ gsap.ticker.lagSmoothing(0);
 //     onAfterEnter: (el) => {},
 //   },
 // });
+// if (process.browser) {
+//   function createTextAnimations() {
+//     // sections.forEach((section) => {
+//     const sections = document.querySelector(".section2");
+//     const items = document.querySelectorAll(".idea__item");
+//     items.forEach((item) => {
+//       gsap.to(item, {
+//         opacity: 1,
+//         duration: 0.8,
+//         ease: "power2.out",
+//         // stagger: 0.03,
+//         scrollTrigger: {
+//           trigger: sections,
+//           start: "left center",
+//           horizontal: true,
+//           onUpdate: (self) => {
+//             console.log(item);
+//           },
+//         },
+//       });
+//     });
+//   }
+//   createTextAnimations();
+//   // });
+// }
 onMounted(() => {
   if (process.browser) {
     const updateViewportVariables = () => {
@@ -522,9 +547,16 @@ button:focus-visible {
   margin-bottom: 12px;
   font-family: "Italiana", serif;
   font-weight: 400;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-white);
+  color: var(--color-white);
+  transform: translate(0%, 100%);
+  opacity: 0;
+
   /* text-stroke: 2px #000; */
+}
+.heading__line {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .scrollBar {
@@ -561,6 +593,7 @@ body::-webkit-scrollbar,
 }
 .section3,
 .section4 {
+  position: relative;
   background: radial-gradient(
     62.49% 42.49% at 7.01% 12.22%,
     rgba(60, 103, 84, 0.7) 0%,

@@ -6,7 +6,9 @@
         <div class="">
           <div class="idea__all">
             <div class="idea__allInner">
-              <h2 class="heading">Idea</h2>
+              <div class="heading__line">
+                <h2 class="heading">Idea</h2>
+              </div>
               <div>
                 <div class="idea__body">
                   <ul class="idea__list">

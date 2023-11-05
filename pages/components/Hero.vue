@@ -1,3 +1,70 @@
+<script>
+// import { ref, onMounted, onUpdated } from "vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+if (process.browser) {
+  const name = document.querySelectorAll(".hero__ramdom path");
+  const name2 = document.querySelector(".hero__name");
+  // const _opacity = ref(0);
+  const tl = gsap.timeline();
+  // gsap.set(name2, {
+  //   clipPath: "inset(0 0 100% 0)",
+  // });
+  tl.to(name, {
+    opacity: 1,
+    filter: "blur(0px)",
+    ease: "power2.in",
+    duration: 0.7,
+    stagger: {
+      each: 0.1, // 遅延させる時間
+      from: "random", // 開始位置の指定 start, end, center, edges, random
+    },
+  }).to(".hero__name", {
+    duration: 0.7,
+    ease: "power2.in",
+    opacity: 1,
+    clipPath: "inset(0)",
+  });
+  // onMounted(() => {
+  // sections.forEach((section) => {
+  const sections = document.querySelector(".section2");
+  const items = document.querySelectorAll(".idea__item");
+
+  // const tl = gsap.timeline();
+  // items.forEach((item) => {
+  gsap.to(".idea__list", {
+    opacity: 1,
+    duration: 2,
+    delay: 1.5,
+    ease: "power2.out",
+    // stagger: 0.03,
+    scrollTrigger: {
+      trigger: sections,
+      start: "left center",
+      horizontal: true,
+    },
+  });
+  // });
+  // });
+  // });
+  const heading = document.querySelectorAll(".heading");
+  heading.forEach((item) => {
+    gsap.to(item, {
+      y: "0%",
+      opacity: 1,
+      duration: 2,
+      ease: "expo.inOut",
+      scrollTrigger: {
+        trigger: sections,
+        start: "left center",
+        horizontal: true,
+      },
+    });
+  });
+}
+</script>
+
 <template>
   <div class="section">
     <div class="hero">
@@ -109,29 +176,3 @@
   /* clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); */
 }
 </style>
-<script>
-import gsap from "gsap";
-if (process.browser) {
-  const name = document.querySelectorAll(".hero__ramdom path");
-  const name2 = document.querySelector(".hero__name");
-  const tl = gsap.timeline();
-  // gsap.set(name2, {
-  //   clipPath: "inset(0 0 100% 0)",
-  // });
-  tl.to(name, {
-    opacity: 1,
-    filter: "blur(0px)",
-    ease: "power2.in",
-    duration: 0.7,
-    stagger: {
-      each: 0.1, // 遅延させる時間
-      from: "random", // 開始位置の指定 start, end, center, edges, random
-    },
-  }).to(".hero__name", {
-    duration: 0.7,
-    ease: "power2.in",
-    opacity: 1,
-    clipPath: "inset(0)",
-  });
-}
-</script>

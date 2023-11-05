@@ -121,6 +121,25 @@ const toggle = () => {
   flex-direction: column;
   row-gap: 1rem;
 }
+.is-drawerActive .globalNav__item {
+  opacity: 1;
+  transform: translateX(0px);
+}
+/* .is-drawerActive .globalNav__item:nth-child(1) {
+  transition-delay: 0.2s;
+}
+.is-drawerActive .globalNav__item:nth-child(2) {
+  transition-delay: 0.25s;
+}
+.is-drawerActive .globalNav__item:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.is-drawerActive .globalNav__item:nth-child(4) {
+  transition-delay: 0.35s;
+} */
+.globalNav__item {
+  transition-delay: 0s;
+}
 @media screen and (min-width: 768px) {
   .header__nav {
     right: auto;
@@ -155,6 +174,9 @@ const toggle = () => {
     border: 1px solid #fff;
     border-radius: calc(20 / 16 * 1rem);
   }
+  .globalNav__item {
+    transition-delay: 0 !important;
+  }
 }
 .globalNav__item a {
   color: inherit;
@@ -183,24 +205,5 @@ const toggle = () => {
   transition-timing-function: var(--ease-inout-quad);
   opacity: 0;
   transform: translateX(-20px);
-}
-.is-drawerActive .globalNav__item {
-  opacity: 1;
-  transform: translateX(0px);
-}
-.is-drawerActive .globalNav__item:nth-child(1) {
-  transition-delay: 0.3s;
-}
-.is-drawerActive .globalNav__item:nth-child(2) {
-  transition-delay: 0.35s;
-}
-.is-drawerActive .globalNav__item:nth-child(3) {
-  transition-delay: 0.4s;
-}
-.is-drawerActive .globalNav__item:nth-child(4) {
-  transition-delay: 0.45s;
-}
-.globalNav__item {
-  transition-delay: 0s;
 }
 </style>

@@ -38,12 +38,17 @@ const { data } = await useMicroCMSGetList<Idea>({
 //   });
 //   // });
 // }
+
+// });
 </script>
+
 <template>
   <div class="section2" id="idea">
     <div class="l-wrapper">
       <div class="idea__inner">
-        <h2 class="heading">Idea</h2>
+        <div class="heading__line">
+          <h2 class="heading">Idea</h2>
+        </div>
         <div class="idea__body">
           <ul class="idea__list">
             <li v-for="idea in data?.contents" :key="idea.id" class="idea__item js-parallax">
@@ -58,7 +63,6 @@ const { data } = await useMicroCMSGetList<Idea>({
             <!-- idea__item -->
           </ul>
           <!-- idea__list -->
-
           <div class="">
             <div class="idea__button">
               <p><NuxtLink to="/idea">view more</NuxtLink></p>
@@ -142,6 +146,7 @@ const { data } = await useMicroCMSGetList<Idea>({
     grid-template-rows: repeat(2, 1fr);
     gap: 28px;
     grid-auto-flow: column;
+    opacity: 0;
   }
 
   .idea__item + .idea__item {

@@ -47,6 +47,9 @@ const toggle = () => {
     </header>
   </div>
   <slot />
+  <footer>
+    <p class="footer__copy">@2023 Yusuke Namikawa</p>
+  </footer>
 </template>
 <script setup></script>
 <style>
@@ -96,7 +99,7 @@ const toggle = () => {
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
   pointer-events: none;
   visibility: hidden;
-  transition: visibility 0ms 2000ms, clip-path 1000ms var(--ease-out-expo);
+  transition: visibility 0ms 2000ms, clip-path 500ms ease;
 }
 .is-drawerActive .drawer {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -128,6 +131,7 @@ const toggle = () => {
     border: none;
     padding: 0;
     border-radius: 0;
+    clip-path: none;
   }
   .drawer__inner {
     flex-direction: row;
@@ -176,7 +180,7 @@ const toggle = () => {
   transition-property: opacity transform;
   transition-duration: 0.4s;
   transition-delay: 0s;
-  transition-timing-function: var(--ease-inout-quad);
+  transition-timing-function: var(--ease-out-cubic);
   opacity: 0;
   transform: translateX(-20px);
 }
@@ -185,18 +189,23 @@ const toggle = () => {
   transform: translateX(0px);
 }
 .is-drawerActive .globalNav__item:nth-child(1) {
-  transition-delay: 0.3s;
+  transition-delay: 0.1s;
 }
 .is-drawerActive .globalNav__item:nth-child(2) {
-  transition-delay: 0.35s;
+  transition-delay: 0.15s;
 }
 .is-drawerActive .globalNav__item:nth-child(3) {
-  transition-delay: 0.4s;
+  transition-delay: 0.2s;
 }
 .is-drawerActive .globalNav__item:nth-child(4) {
-  transition-delay: 0.45s;
+  transition-delay: 0.25s;
 }
 .globalNav__item {
   transition-delay: 0s;
+}
+.footer__copy {
+  color: var(--color-white);
+  text-align: center;
+  padding-bottom: 14px;
 }
 </style>
