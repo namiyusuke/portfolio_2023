@@ -207,6 +207,8 @@ const toggle = () => {
   color: var(--color-white);
   text-align: center;
   padding-bottom: 14px;
+  font-weight: 200;
+  font-size: 14px;
 }
 @media screen and (min-width: 768px) {
   .footer {

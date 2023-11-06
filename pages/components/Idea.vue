@@ -126,6 +126,12 @@ const { data } = await useMicroCMSGetList<Idea>({
 .idea__item figure {
   position: relative;
 }
+.idea__item figure {
+  width: 330px;
+  height: 227px;
+  aspect-ratio: 330/227;
+  overflow: hidden;
+}
 /* .idea__item figure::after {
   position: absolute;
   top: 0;
@@ -137,6 +143,10 @@ const { data } = await useMicroCMSGetList<Idea>({
   mix-blend-mode: hue;
 } */
 @media screen and (min-width: 768px) {
+  .idea__item {
+    border: 2px solid var(--color-green);
+    padding: 10px;
+  }
   .idea__inner {
     padding-left: 241px;
     flex-shrink: 0;

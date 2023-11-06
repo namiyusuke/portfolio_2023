@@ -32,9 +32,11 @@ console.log(data);
         <ul class="projects__flex">
           <li v-for="project in data?.contents" :key="project.id" class="projects__item">
             <a :href="project.url" target="_blank">
-              <figure>
-                <img :src="project.image?.url" alt="" />
-              </figure>
+              <div class="projects__border">
+                <figure>
+                  <img :src="project.image?.url" alt="" />
+                </figure>
+              </div>
               <p>
                 <span class="projects__title" :href="project.url" target="_blank">{{ project.title }}</span>
               </p>
@@ -50,11 +52,24 @@ console.log(data);
 </template>
 <style>
 /* projects */
+/* .projects__item {
+} */
 .projects__title {
   font-size: calc(20 / 16 * 1rem);
   color: var(--color-white);
   display: block;
   margin-top: calc(10 / 16 * 1rem);
+}
+.projects__item a:hover .projects__title {
+  animation: flash 0.001s 0s infinite alternate-reverse;
+}
+@keyframes flash {
+  0% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .projects__item + .projects__item {
   margin-top: calc(54 / 16 * 1rem);
@@ -104,6 +119,10 @@ console.log(data);
   border: 1px solid #dfe091;
   padding: 36px 97px;
   margin-bottom: 10px;
+}
+.projects__item .projects__border {
+  padding: 10px;
+  border: 2px solid var(--color-green);
 }
 @media screen and (min-width: 768px) {
   .projects__decorate1,
