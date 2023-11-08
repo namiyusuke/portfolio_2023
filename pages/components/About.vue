@@ -238,8 +238,15 @@ if (process.browser) {
 
     let x = 0;
     let y = 0;
-    const maxX = 380;
-    const maxY = 380;
+
+    let maxX = 180;
+    let maxY = 180;
+
+    if (window.innerWidth >= 768) {
+      maxX = 380;
+      maxY = 380;
+    }
+
     let xDirection = 1;
     let yDirection = 1;
     function lerp(start, end, t) {

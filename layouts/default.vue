@@ -105,7 +105,7 @@ const toggle = () => {
   transition: visibility 0ms 0ms, clip-path 1000ms var(--ease-out-expo);
 }
 .drawer__inner {
-  background-color: var(--color-gray);
+  background-color: var(--color-white);
   color: var(--color-green);
   padding: 25px 34px 25px 49px;
   border-radius: calc(20 / 16 * 1rem);

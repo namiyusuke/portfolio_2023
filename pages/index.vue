@@ -606,17 +606,20 @@ body::-webkit-scrollbar,
   width: 5px;
   height: 0px;
 }
-
+.section {
+  background: linear-gradient(108deg, rgba(60, 103, 84, 0.7) 15.65%, rgba(60, 103, 84, 0) 63.54%);
+}
 .section2 {
   padding: calc(100 / 16 * 1rem) 0 calc(180 / 16 * 1rem) 0;
 }
+.section2,
 .section3,
 .section4 {
   position: relative;
   background: radial-gradient(
-    62.49% 42.49% at 7.01% 12.22%,
+    80.16% 84.65% at 7.73% 6.15%,
     rgba(60, 103, 84, 0.7) 0%,
-    rgba(60, 103, 84, 0.21) 65.63%,
+    rgba(60, 103, 84, 0.21) 61.67%,
     rgba(60, 103, 84, 0) 100%
   );
   /* width: 100vw; */
@@ -628,6 +631,7 @@ body::-webkit-scrollbar,
 .section3 {
   padding: 100px 0 180px 0;
 }
+
 @media screen and (min-width: 768px) {
   main {
     display: flex;

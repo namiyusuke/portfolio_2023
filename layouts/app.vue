@@ -108,7 +108,7 @@ const toggle = () => {
   transition: visibility 0ms 0ms, clip-path 1000ms var(--ease-out-expo);
 }
 .drawer__inner {
-  background-color: var(--color-gray);
+  background-color: var(--color-white);
   color: var(--color-green);
   padding: 25px 34px 25px 49px;
   border-radius: calc(20 / 16 * 1rem);
@@ -159,7 +159,31 @@ const toggle = () => {
 .globalNav__item a {
   color: inherit;
   font-size: calc(20 / 16 * 1rem);
+  background-repeat: no-repeat;
+  background-size: 220% 100%;
+  color: var(--color-white);
+  display: block;
+  transition-property: all;
+  transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+.globalNav__item a:hover {
+  animation-duration: 0.6s;
+  /* animation-fill-mode: forwards; */
+  opacity: 0.5;
+  /* animation-name: animeFilter; */
+  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+/* @keyframes animeFilter {
+  0% {
+    filter: brightness(1);
+  }
+  10% {
+    filter: brightness(5.5);
+  }
+  100% {
+    filter: brightness(1.4);
+  }
+} */
 .globalNav__item + .globalNav__item {
   margin-top: calc(18 / 16 * 1rem);
 }

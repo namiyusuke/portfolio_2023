@@ -123,6 +123,16 @@ const { data } = await useMicroCMSGetList<Idea>({
   /* color: #fff; */
   font-size: calc(24 / 16 * 1rem);
 }
+.idea__button {
+  text-align: end;
+  margin-top: 8px;
+}
+@media screen and (min-width: 768px) {
+  .idea__button {
+    text-align: left;
+    margin-top: 0px;
+  }
+}
 .idea__item figure {
   position: relative;
 }
