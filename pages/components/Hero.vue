@@ -3,7 +3,9 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
+
 if (process.browser) {
+  // onMounted(() => {
   const name = document.querySelectorAll(".hero__ramdom path");
   const name2 = document.querySelector(".hero__name");
   // const _opacity = ref(0);
@@ -26,28 +28,21 @@ if (process.browser) {
     opacity: 1,
     clipPath: "inset(0)",
   });
-  // onMounted(() => {
-  // sections.forEach((section) => {
+
   const sections = document.querySelector(".section2");
   const items = document.querySelectorAll(".idea__item");
 
-  // const tl = gsap.timeline();
-  // items.forEach((item) => {
   gsap.to(".idea__list", {
     opacity: 1,
     duration: 2,
     delay: 1.5,
     ease: "power2.out",
-    // stagger: 0.03,
     scrollTrigger: {
       trigger: sections,
       start: "left center",
       horizontal: true,
     },
   });
-  // });
-  // });
-  // });
   const heading = document.querySelectorAll(".heading");
   heading.forEach((item) => {
     gsap.to(item, {
@@ -62,9 +57,9 @@ if (process.browser) {
       },
     });
   });
+  // });
 }
 </script>
-
 <template>
   <div class="section">
     <div class="hero">
@@ -135,6 +130,7 @@ if (process.browser) {
           </g>
         </svg>
       </div>
+      <div class="hero__copy">@2023 Yusuke Namikawa</div>
     </div>
   </div>
 </template>
@@ -147,8 +143,8 @@ if (process.browser) {
 }
 .hero___thumbnail {
   position: absolute;
-  bottom: 160px;
-  right: -40px;
+  bottom: 26%;
+  right: -50px;
 }
 .hero___thumbnail svg {
   max-inline-size: none;
@@ -182,5 +178,20 @@ if (process.browser) {
   clip-path: "inset(0 0 100% 0)";
   /* clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)", */
   /* clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0 100%); */
+}
+.hero__copy {
+  position: absolute;
+  left: -70px;
+  bottom: 0;
+  color: var(--color-white);
+  transform: rotate(-90deg) translateX(60%);
+  font-family: "Inter" "serif";
+  font-weight: 200;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .hero__copy {
+    display: block;
+  }
 }
 </style>

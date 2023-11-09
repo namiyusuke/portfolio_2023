@@ -66,7 +66,7 @@ const toggle = () => {
   position: fixed;
   top: 62px;
   right: 22px;
-  z-index: 2;
+  z-index: 1000;
 }
 @media screen and (min-width: 768px) {
   .header__nav {

@@ -69,7 +69,7 @@ const toggle = () => {
   position: fixed;
   top: 62px;
   right: 22px;
-  z-index: 2;
+  z-index: 10;
 }
 
 .ol-button {
@@ -125,7 +125,7 @@ const toggle = () => {
     position: fixed;
     top: 62px;
     left: 42px;
-    z-index: 2;
+    z-index: 100;
   }
   .drawer {
     border: none;
@@ -161,10 +161,16 @@ const toggle = () => {
   font-size: calc(20 / 16 * 1rem);
   background-repeat: no-repeat;
   background-size: 220% 100%;
-  color: var(--color-white);
+
+  color: var(--color-green);
   display: block;
   transition-property: all;
   transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+@media screen and (min-width: 768px) {
+  .globalNav__item a {
+    color: var(--color-white);
+  }
 }
 .globalNav__item a:hover {
   animation-duration: 0.6s;

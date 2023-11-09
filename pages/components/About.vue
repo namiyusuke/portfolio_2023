@@ -9,7 +9,9 @@
         </div>
         <div class="about__flex">
           <div class="about__left">
-            <h3 class="about__name">Yusuke Namikawa <span class="about__ja">並河祐輔</span></h3>
+            <h3 class="about__name">
+              <span class="about__en">Yusuke Namikawa</span><span class="about__ja">並河祐輔</span>
+            </h3>
             <div class="about__text">
               <span class="u-wbr">大学にて心理学を学びのちに専門学校を卒業後、社会福祉士として児童養護施設で働く</span>
               <span class="u-wbr">2021年10月より制作会社でフロントエンドエンジニアとして勤務。</span>
@@ -89,6 +91,18 @@
   color: var(--color-white);
   font-size: calc(36 / 16 * 1rem);
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  column-gap: 9px;
+  font-weight: 400;
+}
+.about__en {
+  font-size: calc(24 / 16 * 1rem);
+}
+@media screen and (min-width: 768px) {
+  .about__en {
+    font-size: calc(36 / 16 * 1rem);
+  }
 }
 .about__ja {
   display: inline-block;
@@ -97,12 +111,24 @@
 }
 .about__text {
   color: #fff;
+  font-size: calc(14 / 16 * 1rem);
 }
 .about__text span {
   line-height: 150%;
 }
-.about__snsItem {
+.about__snsItem:first-child {
   margin-top: calc(48 / 16 * 1rem);
+}
+.about__snsItem {
+  margin-top: calc(18 / 16 * 1rem);
+}
+@media screen and (min-width: 768px) {
+  .about__snsItem:first-child {
+    margin-top: calc(32 / 16 * 1rem);
+  }
+  .about__snsItem {
+    margin-top: calc(48 / 16 * 1rem);
+  }
 }
 .about__snsItem a {
   display: flex;

@@ -60,6 +60,9 @@ console.log(data);
   display: block;
   margin-top: calc(10 / 16 * 1rem);
 }
+.projects__item p {
+  font-weight: 200;
+}
 .projects__item a:hover .projects__title {
   animation: flash 0.001s 0s infinite alternate-reverse;
 }

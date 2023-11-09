@@ -129,26 +129,6 @@ onMounted(() => {
     window.addEventListener("resize", updateViewportVariables);
     updateViewportVariables();
   }
-
-  const texts = document.querySelectorAll(".text");
-  gsap.set(texts, { y: "80%", clipPath: "inset(0 0 100% 0)" });
-  const sections = document.querySelectorAll(".section");
-  sections.forEach((elem) => {
-    const texq = elem.querySelectorAll(".text");
-
-    gsap.to(texq, {
-      y: 0,
-      clipPath: "inset(0 0 0% 0)",
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: 0.03,
-      scrollTrigger: {
-        trigger: elem,
-        start: "left center",
-        horizontal: true,
-      },
-    });
-  });
 });
 // if (process.browser) {
 //   const section2 = document.querySelector(".section2");
@@ -561,7 +541,7 @@ button:focus-visible {
 
 .heading {
   color: var(--color-white);
-  font-size: calc(48 / 16 * 1rem);
+  font-size: calc(32 / 16 * 1rem);
   margin-bottom: 12px;
   font-family: "Italiana", serif;
   font-weight: 400;
@@ -578,6 +558,11 @@ button:focus-visible {
   width: 100%;
 }
 @media screen and (min-width: 768px) {
+  .heading {
+    font-size: calc(48 / 16 * 1rem);
+
+    /* text-stroke: 2px #000; */
+  }
   .scrollBar {
     position: fixed;
     z-index: 5;

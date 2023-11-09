@@ -137,8 +137,9 @@ const { data } = await useMicroCMSGetList<Idea>({
   position: relative;
 }
 .idea__item figure {
-  width: 330px;
-  height: 227px;
+  /* width: 330px;
+  height: 227px; */
+  width: 100%;
   aspect-ratio: 330/227;
   overflow: hidden;
 }
