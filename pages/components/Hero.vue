@@ -149,7 +149,7 @@ if (process.browser) {
 .hero__copy {
   position: absolute;
   left: -70px;
-  bottom: 0;
+  bottom: 8%;
   color: var(--color-white);
   transform: rotate(-90deg) translateX(60%);
   font-family: "Inter" "serif";

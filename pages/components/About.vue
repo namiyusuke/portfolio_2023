@@ -1,6 +1,8 @@
 <template>
   <div class="section4 js-section" id="about">
-    <p class="about__decorate1">animation</p>
+    <!-- <div class="about__decorate1">
+      <img src="~/assets/typo.png" alt="" />
+    </div> -->
     <p class="about__decorate2">
       <span class="about__decorate2_bottom"
         ><span>interaction</span><span>interaction</span><span>interaction</span><span>interaction</span
@@ -243,12 +245,17 @@
   z-index: -1;
 }
 .about__decorate1 {
-  -webkit-text-stroke: 1px var(--color-green);
+  width: max(calc(600 / 1440 * 100vw), 600px);
+  height: max(calc(520 / 1440 * 100vw), 520px);
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  /* -webkit-text-stroke: 1px var(--color-green);
   top: -30px;
   color: transparent;
   font-size: 10vw;
   left: 60px;
-  transform: scale(-1);
+  transform: scale(-1); */
 }
 .about__decorate2 {
   -webkit-text-stroke: 1px var(--color-white);
@@ -288,6 +295,7 @@
 .about__decorate2_bottom {
   font-size: 100px;
   column-gap: 32px;
+  opacity: 0.5;
   -webkit-text-stroke: 1px var(--color-white);
 }
 </style>

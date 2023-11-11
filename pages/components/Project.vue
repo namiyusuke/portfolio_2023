@@ -14,10 +14,19 @@ console.log(data);
 
 <template>
   <div class="section3 js-section" id="projects">
-    After studying psychology at university and graduating from a vocational school, he worked at a children's home as a
-    social worker.Worked as a front-end engineer at a production company since October 2021. What I am good at/able to
-    do: Animation/interaction using JS and CSS, markupHobbies: Bouldering, muscle training, sauna, cooking
-    <div class="projects__decorate-wrapper">
+    <div class="projects__decorate-text">
+      <p>
+        <span class="u-wbr">After studying psychology at university and graduating</span>
+        <span class="u-wbr"> from a vocational school, he worked at a children's home </span> as a social worker
+      </p>
+      <p><span class="u-wbr">.Worked as a front-end engineer at a production company</span> since October 2021.</p>
+      <p>
+        <span class="u-wbr">What I am good at/able to do: Animation/interaction using</span
+        ><span class="u-wbr"> JS and CSS, markupHobbies:</span>
+        Bouldering, muscle training, sauna, cooking
+      </p>
+    </div>
+    <!-- <div class="projects__decorate-wrapper">
       <p class="projects__decorate-name">Yusuke Namikawa</p>
       <p>
         <span class="u-wbr">Born in 1993 in Kyoto Prefecture. After graduating</span
@@ -26,7 +35,7 @@ console.log(data);
         October 2021. <span class="u-wbr">Belongs to Acorder Co., Ltd. since November 2023.</span>
       </p>
       <p>Responsible for the implementation of the independent production team "Attcraft".</p>
-    </div>
+    </div> -->
     <div class="l-wrapper">
       <div class="projects__wrapper">
         <div class="heading__line">
@@ -49,8 +58,10 @@ console.log(data);
       </div>
     </div>
     <!-- /.l-wrapper -->
-    <p class="projects__decorate1">animationanimation</p>
-    <p class="projects__decorate2">interactioninteraction</p>
+    <div class="projects__decorate_wrapper">
+      <p class="projects__decorate1">animation animation animation animation animation animation animation animation</p>
+      <p class="projects__decorate2">interaction interaction interaction interaction interaction interaction</p>
+    </div>
   </div>
 </template>
 <style>
@@ -85,39 +96,47 @@ console.log(data);
   height: 100%;
   object-fit: cover;
 }
-.projects__decorate1,
-.projects__decorate2,
-.projects__decorate-wrapper {
-  font-family: "Italiana", serif;
-  position: absolute;
-  z-index: -1;
-  display: none;
-}
-.projects__decorate1 {
-  font-size: 10vw;
-  color: transparent;
-  -webkit-text-stroke: 1px var(--color-green);
-  bottom: 45px;
-  left: 60px;
-  transform: scaleY(-1);
-}
-.projects__decorate2 {
-  color: transparent;
-  opacity: 0.3;
-  font-size: 6vw;
-  -webkit-text-stroke: 1px var(--color-white);
-  bottom: 5px;
-  left: 60px;
-}
+.projects__decorate-wrapper,
 .projects__decorate-wrapper {
   font-family: "Italiana", serif;
   position: absolute;
   z-index: 1;
-  left: 100px;
-  top: 26px;
+  display: none;
+}
+.projects__decorate1 {
+  font-size: 40vw;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-green);
+  left: calc(80%);
+  z-index: -1;
+  top: -3500px;
+  position: absolute;
+}
+
+.projects__decorate2 {
+  color: transparent;
+  opacity: 0.3;
+  -webkit-text-stroke: 1px var(--color-white);
+  left: 60px;
+}
+.projects__decorate-text {
+  font-family: "Inter", serif;
+  position: absolute;
+  font-style: italic;
+  z-index: -1;
+  left: 174px;
+  bottom: 40px;
+  min-width: 225px;
+  font-weight: 100;
+  line-height: 168.75%;
+
   opacity: 0.5;
   color: var(--yellow, #dfe091);
 }
+/* .projects__decorate-text p:nth-child(2),
+.projects__decorate-text p:nth-child(3) {
+  display: none;
+} */
 .projects__decorate-name {
   display: inline-block;
   font-size: calc(24 / 16 * 1rem);
@@ -130,11 +149,40 @@ console.log(data);
   padding: 10px;
   border: 2px solid var(--color-green);
 }
+
+.projects__decorate2 {
+  font-size: 100px;
+  left: 16%;
+  display: none;
+}
+
+.projects__decorate1,
+.projects__decorate2 {
+  word-break: break-all;
+  white-space: nowrap;
+  transform: rotate(90deg);
+  transform-origin: left;
+  font-family: "Italiana";
+}
 @media screen and (min-width: 768px) {
+  .projects__decorate-text {
+    right: 100px;
+    bottom: auto;
+    left: auto;
+  }
+  .projects__decorate1 {
+    font-size: 10vw;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--color-green);
+    left: 11%;
+  }
   .projects__decorate1,
-  .projects__decorate2,
-  .projects__decorate-wrapper {
+  .projects__decorate2 {
     display: block;
+    position: absolute;
+    right: auto;
+
+    top: -16%;
   }
   .projects__wrapper {
     padding: 102px 360px 202px 360px;
@@ -147,6 +195,9 @@ console.log(data);
   .projects__flex {
     display: flex;
     column-gap: 30px;
+  }
+  .projects__decorate2 {
+    display: block;
   }
   .projects__item figure {
     width: min(calc(var(--vh) * 41.472), 338px);
