@@ -11,56 +11,92 @@ gsap.registerPlugin(ScrollTrigger);
 
 // =============================
 // Lenis
-let progress = ref(0);
-/**
- * イベントリスナー
- */
-const listener = (event: any) => {
-  // リサイズ時に行う処理
-  if (event.matches) {
-    let lenis = new Lenis({
-      orientation: "horizontal",
-      syncTouch: true,
-      smoothTouch: true,
-      gestureOrientation: ScrollTrigger.isTouch ? "horizontal" : "vertical",
-    });
 
-    if (process.browser) {
-      document.querySelectorAll("a[data-scroll-link]").forEach((anchor) => {
-        const id = anchor.getAttribute("data-scroll-link");
+onMounted(() => {
+  let progress = ref(0);
+  /**
+   * イベントリスナー
+   */
 
-        let element = document.querySelector(`#${id}`);
+  const listener = (event: any) => {
+    // リサイズ時に行う処理
+    if (event.matches) {
+      let lenis = new Lenis({
+        orientation: "horizontal",
+        syncTouch: true,
+        smoothTouch: true,
+        gestureOrientation: ScrollTrigger.isTouch ? "horizontal" : "vertical",
+      });
 
-        // クリック時に目的の箇所までスクロールする
-        anchor?.addEventListener("click", (e) => {
-          // urlを変更しないようにする
-          e.preventDefault();
-          // スクロール
+      if (process.browser) {
+        document.querySelectorAll("a[data-scroll-link]").forEach((anchor) => {
+          const id = anchor.getAttribute("data-scroll-link");
 
-          lenis.scrollTo(element);
+          let element = document.querySelector(`#${id}`);
+
+          // クリック時に目的の箇所までスクロールする
+          anchor?.addEventListener("click", (e) => {
+            // urlを変更しないようにする
+            e.preventDefault();
+            // スクロール
+
+            lenis.scrollTo(element);
+          });
         });
+      }
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time: number) => {
+        progress.value = lenis.progress;
+        lenis.raf(time * 1000);
       });
     }
-    lenis.on("scroll", ScrollTrigger.update);
-
-    gsap.ticker.add((time: number) => {
-      progress.value = lenis.progress;
-      lenis.raf(time * 1000);
-    });
-  }
-};
-
-// リスナー登録
-if (process.browser) {
-  // アンカーリンクを取得
-
+  };
   const mediaQueryList = window.matchMedia("(min-width: 1024px)");
   mediaQueryList.addEventListener("change", listener);
   // 初期化処理
   listener(mediaQueryList);
+  gsap.ticker.lagSmoothing(0);
+});
+// リスナー登録
+if (process.browser) {
+  // アンカーリンクを取得
+  onMounted(() => {
+    const sections = document.querySelectorAll(".js-section");
+    sections.forEach((section) => {
+      const headings = section.querySelectorAll(".heading");
+      gsap.to(".idea__list", {
+        opacity: 1,
+        duration: 2,
+        delay: 1.5,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: section,
+          start: "left center",
+          horizontal: true,
+        },
+      });
+      headings.forEach((heading) => {
+        console.log(heading);
+        gsap.to(heading, {
+          y: "0%",
+          opacity: 1,
+          duration: 2,
+          ease: "expo.inOut",
+          scrollTrigger: {
+            trigger: section,
+            start: "left center",
+            horizontal: true,
+          },
+          onComplete: () => {
+            console.log(heading);
+          },
+        });
+      });
+    });
+  });
 }
 
-gsap.ticker.lagSmoothing(0);
 // definePageMeta({
 //   pageTransition: {
 //     name: "custom-flip",
@@ -427,9 +463,6 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
-a:hover {
-  color: #535bf2;
-}
 
 body {
   /* margin: 0;
@@ -541,7 +574,7 @@ button:focus-visible {
 
 .heading {
   color: var(--color-white);
-  font-size: calc(32 / 16 * 1rem);
+  font-size: calc(36 / 16 * 1rem);
   margin-bottom: 12px;
   font-family: "Italiana", serif;
   font-weight: 400;
@@ -600,6 +633,7 @@ body::-webkit-scrollbar,
 .section2,
 .section3,
 .section4 {
+  overflow: hidden;
   position: relative;
   background: radial-gradient(
     80.16% 84.65% at 7.73% 6.15%,

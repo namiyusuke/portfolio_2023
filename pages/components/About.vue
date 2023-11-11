@@ -1,7 +1,16 @@
 <template>
-  <div class="section4" id="about">
+  <div class="section4 js-section" id="about">
     <p class="about__decorate1">animation</p>
-    <p class="about__decorate2">interaction interaction interaction</p>
+    <p class="about__decorate2">
+      <span class="about__decorate2_bottom"
+        ><span>interaction</span><span>interaction</span><span>interaction</span><span>interaction</span
+        ><span>interaction</span><span>interaction</span><span>interaction</span></span
+      >
+      <span class="about__decorate2_top"
+        ><span>animation</span><span>animation</span><span>animation</span><span>animation</span><span>animation</span
+        ><span>animation</span><span>animation</span></span
+      >
+    </p>
     <div class="l-wrapper">
       <div class="about__wrapper">
         <div class="heading__line">
@@ -89,10 +98,11 @@
 
 .about__name {
   color: var(--color-white);
-  font-size: calc(36 / 16 * 1rem);
   margin-bottom: 1rem;
   display: flex;
-  align-items: center;
+  row-gap: 8px;
+  flex-direction: column;
+  align-items: flex-start;
   column-gap: 9px;
   font-weight: 400;
 }
@@ -100,6 +110,12 @@
   font-size: calc(24 / 16 * 1rem);
 }
 @media screen and (min-width: 768px) {
+  .about__name {
+    row-gap: 0px;
+    margin-bottom: 1rem;
+    flex-direction: row;
+    align-items: center;
+  }
   .about__en {
     font-size: calc(36 / 16 * 1rem);
   }
@@ -234,7 +250,7 @@
   left: 60px;
   transform: scale(-1);
 }
-/* .about__decorate2 {
+.about__decorate2 {
   -webkit-text-stroke: 1px var(--color-white);
   bottom: 30px;
   opacity: 0.5;
@@ -243,9 +259,40 @@
   right: -800px;
   overflow: hidden;
   transform: scale(-1);
-} */
+}
+.about__decorate2_top,
+.about__decorate2_bottom {
+  display: flex;
+  line-height: 1;
+}
+
+.about__decorate2_top {
+  font-size: 200px;
+  column-gap: 21px;
+  -webkit-text-stroke: 1px var(--color-green);
+}
+.about__decorate2_top span {
+  line-height: 1;
+}
+.about__decorate2_top span:nth-child(2n),
+.about__decorate2_bottom span:nth-child(2n + 1) {
+  transform: scale(-1);
+  position: relative;
+}
+.about__decorate2_top span:nth-child(2n) {
+  top: 36px;
+}
+.about__decorate2_bottom span:nth-child(2n + 1) {
+  top: 16px;
+}
+.about__decorate2_bottom {
+  font-size: 100px;
+  column-gap: 32px;
+  -webkit-text-stroke: 1px var(--color-white);
+}
 </style>
 <script setup>
+import { ref, onMounted, onUpdated } from "vue";
 if (process.browser) {
   onMounted(() => {
     const circleArea = document.querySelector(".circle__container__inner");

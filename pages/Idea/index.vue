@@ -1,17 +1,16 @@
 <template>
   <div>
     <NuxtLayout name="other">
-      <div class="pageCover"></div>
       <div class="idea__bg">
-        <div class="">
+        <div class="section2 js-section">
           <div class="idea__all">
             <div class="idea__allInner">
-              <div class="heading__line">
+              <div class="">
                 <h2 class="heading">Idea</h2>
               </div>
               <div>
                 <div class="idea__body">
-                  <ul class="idea__list">
+                  <ul class="idea__sectionList">
                     <li v-for="idea in data?.contents" :key="idea.id" class="idea__item">
                       <a :href="idea.url" target="_blank">
                         <div class="idea__thumbnail">

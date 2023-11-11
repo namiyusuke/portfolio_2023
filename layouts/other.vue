@@ -55,9 +55,6 @@ const toggle = () => {
     color: #213547;
     background-color: #ffffff;
   }
-  a:hover {
-    color: #747bff;
-  }
   button {
     background-color: #f9f9f9;
   }
@@ -102,6 +99,7 @@ const toggle = () => {
   pointer-events: none;
   visibility: hidden;
   transition: visibility 0ms 2000ms, clip-path 1000ms var(--ease-out-expo);
+  margin-top: calc(16 / 16 * 1rem);
 }
 .is-drawerActive .drawer {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -119,7 +117,7 @@ const toggle = () => {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  row-gap: 1rem;
+  /* row-gap: 1rem; */
 }
 .is-drawerActive .globalNav__item {
   opacity: 1;
@@ -152,6 +150,7 @@ const toggle = () => {
     border: none;
     padding: 0;
     border-radius: 0;
+    margin-left: calc(24 / 16 * 1rem);
   }
   .drawer__inner {
     flex-direction: row;
@@ -162,7 +161,7 @@ const toggle = () => {
   .header__inner {
     display: flex;
     align-items: flex-start;
-    column-gap: 24px;
+    /* column-gap: 24px; */
     flex-direction: row;
   }
   .hamburger__label {

@@ -13,7 +13,10 @@ console.log(data);
 </script>
 
 <template>
-  <div class="section3" id="projects">
+  <div class="section3 js-section" id="projects">
+    After studying psychology at university and graduating from a vocational school, he worked at a children's home as a
+    social worker.Worked as a front-end engineer at a production company since October 2021. What I am good at/able to
+    do: Animation/interaction using JS and CSS, markupHobbies: Bouldering, muscle training, sauna, cooking
     <div class="projects__decorate-wrapper">
       <p class="projects__decorate-name">Yusuke Namikawa</p>
       <p>

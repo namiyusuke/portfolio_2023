@@ -43,7 +43,7 @@ const { data } = await useMicroCMSGetList<Idea>({
 </script>
 
 <template>
-  <div class="section2" id="idea">
+  <div class="section2 js-section" id="idea">
     <div class="l-wrapper">
       <div class="idea__inner">
         <div class="heading__line">
@@ -63,7 +63,7 @@ const { data } = await useMicroCMSGetList<Idea>({
             <!-- idea__item -->
           </ul>
           <!-- idea__list -->
-          <div class="">
+          <div>
             <div class="idea__button">
               <p><NuxtLink to="/idea">view more</NuxtLink></p>
             </div>
@@ -71,6 +71,32 @@ const { data } = await useMicroCMSGetList<Idea>({
         </div>
       </div>
       <!-- idea__inner -->
+    </div>
+    <div class="idea__decorate_backtext">
+      <div class="idea__decorate_backTop">
+        <span class="idea__decorate_left">frontend</span>
+        <span class="idea__decorate_right">frontend</span>
+      </div>
+      <span class="idea__decorate_backBottom">developer</span>
+    </div>
+    <div class="idea__decorate_text">
+      <p>
+        <span class="u-wbr">After studying psychology at university and graduating from a vocational</span>
+        <span class="u-wbr">school, he worked at a children's home as a social worker.</span>
+        <span class="u-wbr">Worked as a front-end engineer at a production company since October 2021.</span>
+        <span class="u-wbr">What I am good at/able</span>
+        <span class="u-wbr">to do: Animation/interaction using JS and CSS, markup</span>
+        <span class="u-wbr">Hobbies: Bouldering, muscle training, sauna, cooking</span>
+      </p>
+
+      <p>
+        <span class="u-wbr">After studying psychology at university and graduating from a vocational</span>
+        <span class="u-wbr">school, he worked at a children's home as a social worker.</span>
+        <span class="u-wbr">Worked as a front-end engineer at a production company since October 2021.</span>
+        <span class="u-wbr">What I am good at/able</span>
+        <span class="u-wbr">to do: Animation/interaction using JS and CSS, markup</span>
+        <span class="u-wbr">Hobbies: Bouldering, muscle training, sauna, cooking</span>
+      </p>
     </div>
   </div>
 </template>
@@ -170,7 +196,12 @@ const { data } = await useMicroCMSGetList<Idea>({
     grid-auto-flow: column;
     opacity: 0;
   }
-
+  .idea__sectionList {
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 28px;
+    grid-auto-flow: column;
+  }
   .idea__item + .idea__item {
     margin-top: 0;
   }
@@ -186,11 +217,47 @@ const { data } = await useMicroCMSGetList<Idea>({
     column-gap: 24px;
   }
 }
-.js-parallax {
-  /* width: 363px; */
-  /* overflow: hidden; */
+.idea__decorate_text {
+  position: absolute;
+  z-index: -1;
+  bottom: 47px;
+  left: 133px;
 }
-/* .idea__item img {
-  transform: translateX(calc(var(--scroll-progress) * -100px));
-} */
+.idea__decorate_text p {
+  font-style: italic;
+  font-weight: 100;
+  font-family: "Inter", sans-serif;
+  color: var(--color-yellow);
+  opacity: 0.5;
+}
+.idea__decorate_text p + p {
+  margin-top: 7px;
+}
+.idea__decorate_right {
+  transform: rotate(180deg) scaleX(-1);
+}
+.idea__decorate_backtext {
+  opacity: 0.3;
+  line-height: 0.7;
+  position: absolute;
+  z-index: -1;
+  right: 125px;
+  top: 67px;
+  font-family: "Italiana", serif;
+  font-weight: 400;
+}
+.idea__decorate_backTop {
+  letter-spacing: 0.2rem;
+  display: flex;
+  letter-spacing: 1;
+  column-gap: 24px;
+  font-size: calc(64 / 16 * 1rem);
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-white);
+}
+.idea__decorate_backBottom {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-yellow);
+  font-size: calc(128 / 16 * 1rem);
+}
 </style>

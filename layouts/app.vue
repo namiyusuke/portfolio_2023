@@ -1,9 +1,37 @@
 <script setup>
+import { ref, onMounted, onUpdated } from "vue";
 const drawerTaget = ref(false);
 
 const toggle = () => {
   drawerTaget.value = !drawerTaget.value;
 };
+if (process.browser) {
+  onMounted(() => {
+    const splitText = (el) => {
+      if (el.firstChild === null || el.textContent === null) {
+        return;
+      }
+      const characters = el.textContent.split("").map((character, index) => {
+        const span = document.createElement("span");
+        span.textContent = character;
+        span.style.setProperty("--index", index.toString());
+
+        return span;
+      });
+      el.firstChild.replaceWith(...characters);
+    };
+    const targets = document.querySelectorAll(".js-split");
+    console.log(targets);
+    const canAnimate = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (canAnimate) {
+      targets.forEach((target) => {
+        if (target.hasAttribute("data-split-text")) {
+          splitText(target);
+        }
+      });
+    }
+  });
+}
 </script>
 
 <template>
@@ -27,16 +55,28 @@ const toggle = () => {
               <div class="drawer__inner">
                 <ul id="globalNav" class="globalNav">
                   <li class="globalNav__item">
-                    <NuxtLink to="#idea" class="globalNav__link" data-scroll-link="idea">idea</NuxtLink>
+                    <NuxtLink to="#idea" class="globalNav__link" data-scroll-link="idea"
+                      ><span class="text__main js-split" data-split-text>idea</span
+                      ><span class="text__sub js-split" data-split-text>idea</span>
+                    </NuxtLink>
                   </li>
                   <li class="globalNav__item">
-                    <NuxtLink to="#projects" class="globalNav__link" data-scroll-link="projects">projects</NuxtLink>
+                    <NuxtLink to="#projects" class="globalNav__link anime" data-scroll-link="projects">
+                      <span class="text__main js-split" data-split-text>projects</span>
+                      <span class="text__sub js-split" data-split-text>projects</span>
+                    </NuxtLink>
                   </li>
                   <li class="globalNav__item">
-                    <NuxtLink to="#about" class="globalNav__link" data-scroll-link="about">about</NuxtLink>
+                    <NuxtLink to="#about" class="globalNav__link anime" data-scroll-link="about">
+                      <span class="text__main js-split" data-split-text>about</span>
+                      <span class="text__sub js-split" data-split-text>about</span>
+                    </NuxtLink>
                   </li>
                   <li class="globalNav__item">
-                    <NuxtLink to="#contact" class="globalNav__link">contact</NuxtLink>
+                    <NuxtLink to="#contact" class="globalNav__link anime">
+                      <span class="text__main js-split" data-split-text>contact</span>
+                      <span class="text__sub js-split" data-split-text>contact</span>
+                    </NuxtLink>
                   </li>
                 </ul>
               </div>
@@ -57,9 +97,6 @@ const toggle = () => {
   :root {
     color: #213547;
     background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
   }
   button {
     background-color: #f9f9f9;
@@ -100,6 +137,7 @@ const toggle = () => {
   pointer-events: none;
   visibility: hidden;
   transition: visibility 0ms 2000ms, clip-path 500ms ease;
+  margin-top: calc(16 / 16 * 1rem);
 }
 .is-drawerActive .drawer {
   clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
@@ -117,7 +155,7 @@ const toggle = () => {
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  row-gap: 1rem;
+  /* row-gap: 1rem; */
 }
 @media screen and (min-width: 768px) {
   .header__nav {
@@ -132,6 +170,7 @@ const toggle = () => {
     padding: 0;
     border-radius: 0;
     clip-path: none;
+    margin-left: calc(24 / 16 * 1rem);
   }
   .drawer__inner {
     flex-direction: row;
@@ -143,7 +182,7 @@ const toggle = () => {
   .header__inner {
     display: flex;
     align-items: flex-start;
-    column-gap: 24px;
+    /* column-gap: 24px; */
     flex-direction: row;
   }
   .hamburger__label {
@@ -161,7 +200,6 @@ const toggle = () => {
   font-size: calc(20 / 16 * 1rem);
   background-repeat: no-repeat;
   background-size: 220% 100%;
-
   color: var(--color-green);
   display: block;
   transition-property: all;
@@ -172,13 +210,7 @@ const toggle = () => {
     color: var(--color-white);
   }
 }
-.globalNav__item a:hover {
-  animation-duration: 0.6s;
-  /* animation-fill-mode: forwards; */
-  opacity: 0.5;
-  /* animation-name: animeFilter; */
-  animation-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
-}
+
 /* @keyframes animeFilter {
   0% {
     filter: brightness(1);
@@ -244,5 +276,35 @@ const toggle = () => {
   .footer {
     display: none;
   }
+}
+.text__sub {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+.text__sub span {
+  transform: translateY(70%);
+  opacity: 0;
+}
+a:hover .text__main span {
+  opacity: 0;
+  transform: translateY(-70%);
+}
+a:hover .text__sub span {
+  opacity: 1;
+  transform: translateY(0%);
+}
+.js-split span {
+  transition-duration: 0.8s;
+  transition-delay: calc(var(--index) * 0.02s);
+  transition-property: opacity, transform;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+a:hover .js-split span {
+  position: relative;
+  pointer-events: none;
+  display: inline-block;
 }
 </style>
