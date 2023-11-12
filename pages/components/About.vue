@@ -259,13 +259,15 @@
 }
 .about__decorate2 {
   -webkit-text-stroke: 1px var(--color-white);
-  bottom: 30px;
+  bottom: 420px;
   opacity: 0.5;
   color: transparent;
   font-size: 7vw;
-  right: -800px;
+  right: 0px;
   overflow: hidden;
   transform: scale(-1);
+  display: flex;
+  flex-direction: column-reverse;
 }
 .about__decorate2_top,
 .about__decorate2_bottom {
@@ -274,7 +276,7 @@
 }
 
 .about__decorate2_top {
-  font-size: 200px;
+  font-size: 80px;
   column-gap: 21px;
   -webkit-text-stroke: 1px var(--color-green);
 }
@@ -287,16 +289,39 @@
   position: relative;
 }
 .about__decorate2_top span:nth-child(2n) {
-  top: 36px;
-}
-.about__decorate2_bottom span:nth-child(2n + 1) {
   top: 16px;
 }
+.about__decorate2_bottom span:nth-child(2n + 1) {
+  top: 4px;
+}
 .about__decorate2_bottom {
-  font-size: 100px;
-  column-gap: 32px;
+  font-size: 32px;
+  column-gap: 10px;
   opacity: 0.5;
   -webkit-text-stroke: 1px var(--color-white);
+}
+@media screen and (min-width: 768px) {
+  .about__decorate2_top {
+    font-size: 200px;
+    column-gap: 21px;
+  }
+  .about__decorate2_bottom {
+    font-size: 100px;
+    column-gap: 32px;
+  }
+  .about__decorate2 {
+    right: -800px;
+    bottom: 30px;
+  }
+  .about__decorate2_top span:nth-child(2n) {
+    top: 36px;
+  }
+  .about__decorate2_bottom span:nth-child(2n + 1) {
+    top: 16px;
+  }
+  .about__decorate2 {
+    flex-direction: column;
+  }
 }
 </style>
 <script setup>

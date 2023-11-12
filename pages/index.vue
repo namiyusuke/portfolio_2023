@@ -11,9 +11,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // =============================
 // Lenis
-
+let progress = ref(0);
 onMounted(() => {
-  let progress = ref(0);
   /**
    * イベントリスナー
    */
@@ -58,44 +57,43 @@ onMounted(() => {
   listener(mediaQueryList);
   gsap.ticker.lagSmoothing(0);
 });
-// リスナー登録
-if (process.browser) {
-  // アンカーリンクを取得
-  onMounted(() => {
-    const sections = document.querySelectorAll(".js-section");
-    sections.forEach((section) => {
-      const headings = section.querySelectorAll(".heading");
-      gsap.to(".idea__list", {
-        opacity: 1,
-        duration: 2,
-        delay: 1.5,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: section,
-          start: "left center",
-          horizontal: true,
-        },
-      });
-      headings.forEach((heading) => {
-        console.log(heading);
-        gsap.to(heading, {
-          y: "0%",
-          opacity: 1,
-          duration: 2,
-          ease: "expo.inOut",
-          scrollTrigger: {
-            trigger: section,
-            start: "left center",
-            horizontal: true,
-          },
-          onComplete: () => {
-            console.log(heading);
-          },
-        });
-      });
-    });
-  });
-}
+// // リスナー登録
+// if (process.browser) {
+//   // アンカーリンクを取得
+//   const sections = document.querySelectorAll(".js-section");
+//   onMounted(() => {
+//     sections.forEach((section) => {
+//       const headings = section.querySelectorAll(".heading");
+//       gsap.to(".idea__list", {
+//         opacity: 1,
+//         duration: 2,
+//         delay: 1.5,
+//         ease: "power2.out",
+//         scrollTrigger: {
+//           trigger: section,
+//           start: "center",
+//           horizontal: true,
+//         },
+//         onComplete: () => {
+//           console.log(section);
+//         },
+//       });
+//       headings.forEach((heading) => {
+//         gsap.to(heading, {
+//           y: "0%",
+//           opacity: 1,
+//           duration: 2,
+//           ease: "expo.inOut",
+//           scrollTrigger: {
+//             trigger: section,
+//             start: "center",
+//             horizontal: true,
+//           },
+//         });
+//       });
+//     });
+//   });
+// }
 
 // definePageMeta({
 //   pageTransition: {
@@ -579,8 +577,8 @@ button:focus-visible {
   font-family: "Italiana", serif;
   font-weight: 400;
   color: var(--color-white);
-  transform: translate(0%, 100%);
-  opacity: 0;
+  /* transform: translate(0%, 100%);
+  opacity: 0; */
   position: relative;
   z-index: 1;
   /* text-stroke: 2px #000; */

@@ -13,7 +13,7 @@ console.log(data);
 </script>
 
 <template>
-  <div class="section3 js-section" id="projects">
+  <div class="section3" id="projects">
     <div class="projects__decorate-text">
       <p>
         <span class="u-wbr">After studying psychology at university and graduating</span>
@@ -37,7 +37,7 @@ console.log(data);
       <p>Responsible for the implementation of the independent production team "Attcraft".</p>
     </div> -->
     <div class="l-wrapper">
-      <div class="projects__wrapper">
+      <div class="projects__wrapper js-section">
         <div class="heading__line">
           <h2 class="heading">projects</h2>
         </div>

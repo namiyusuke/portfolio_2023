@@ -154,7 +154,7 @@ onMounted(() => {
 .idea__all {
   width: calc(330 / 375 * 100%);
   margin: 0 auto;
-  padding-top: 134px;
+  padding-top: 32px;
   padding-bottom: 370px;
 }
 @media screen and (min-width: 768px) {

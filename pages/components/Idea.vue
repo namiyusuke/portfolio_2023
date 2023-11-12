@@ -113,6 +113,8 @@ const { data } = await useMicroCMSGetList<Idea>({
   animation: hoverPicCard 1s ease-out running;
 }
 .idea__button a {
+  position: relative;
+  z-index: 4;
   font-family: "Italiana", serif;
   color: transparent;
   -webkit-background-clip: text;
@@ -194,7 +196,7 @@ const { data } = await useMicroCMSGetList<Idea>({
     grid-template-rows: repeat(2, 1fr);
     gap: 28px;
     grid-auto-flow: column;
-    opacity: 0;
+    /* opacity: 0; */
   }
   .idea__sectionList {
     display: grid;
