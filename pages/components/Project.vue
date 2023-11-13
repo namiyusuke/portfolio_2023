@@ -9,7 +9,6 @@ const { data } = await useMicroCMSGetList<aaa>({
   endpoint: "works",
   queries: { limit: 4 },
 });
-console.log(data);
 </script>
 
 <template>
@@ -164,7 +163,7 @@ console.log(data);
   transform-origin: left;
   font-family: "Italiana";
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .projects__decorate-text {
     right: 100px;
     bottom: auto;

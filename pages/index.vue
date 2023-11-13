@@ -57,6 +57,19 @@ onMounted(() => {
   listener(mediaQueryList);
   gsap.ticker.lagSmoothing(0);
 });
+if (process.browser) {
+  const updateViewportVariables = () => {
+    const e = 0.01 * document.documentElement.clientWidth;
+    const i = 0.01 * document.documentElement.clientHeight;
+    document.documentElement.style.setProperty("--vw", `${e}px`);
+    document.documentElement.style.setProperty("--vh", `${i}px`);
+    document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
+    document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
+  };
+
+  window.addEventListener("resize", updateViewportVariables);
+  updateViewportVariables();
+}
 // // リスナー登録
 // if (process.browser) {
 //   // アンカーリンクを取得
@@ -149,21 +162,7 @@ onMounted(() => {
 //   createTextAnimations();
 //   // });
 // }
-onMounted(() => {
-  if (process.browser) {
-    const updateViewportVariables = () => {
-      const e = 0.01 * document.documentElement.clientWidth;
-      const i = 0.01 * document.documentElement.clientHeight;
-      document.documentElement.style.setProperty("--vw", `${e}px`);
-      document.documentElement.style.setProperty("--vh", `${i}px`);
-      document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
-      document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
-    };
 
-    window.addEventListener("resize", updateViewportVariables);
-    updateViewportVariables();
-  }
-});
 // if (process.browser) {
 //   const section2 = document.querySelector(".section2");
 //   const items = document.querySelectorAll(".idea__item");
@@ -588,7 +587,7 @@ button:focus-visible {
   overflow: hidden;
   width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .heading {
     font-size: calc(48 / 16 * 1rem);
 
@@ -641,6 +640,9 @@ body::-webkit-scrollbar,
   );
   /* width: 100vw; */
 }
+.section2.-ideaPage {
+  overflow: initial;
+}
 .l-wrapper {
   width: calc(331 / 375 * 100%);
   margin-inline: auto;
@@ -649,7 +651,7 @@ body::-webkit-scrollbar,
   padding: 100px 0 180px 0;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   main {
     display: flex;
     width: fit-content;
@@ -674,9 +676,7 @@ body::-webkit-scrollbar,
       rgba(60, 103, 84, 0.21) 65.63%,
       rgba(60, 103, 84, 0) 100%
     );
-    /* width: 100vw; */
-    overflow: hidden;
-    /* margin-bottom: ; */
+
     flex-shrink: 0;
     padding: 0;
   }

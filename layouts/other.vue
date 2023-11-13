@@ -65,7 +65,7 @@ const toggle = () => {
   right: 22px;
   z-index: 1000;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .header__nav {
     top: 62px;
     right: 22px;
@@ -138,7 +138,7 @@ const toggle = () => {
 .globalNav__item {
   transition-delay: 0s;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .header__nav {
     right: auto;
     position: fixed;

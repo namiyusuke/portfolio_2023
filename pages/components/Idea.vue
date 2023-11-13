@@ -155,7 +155,7 @@ const { data } = await useMicroCMSGetList<Idea>({
   text-align: end;
   margin-top: 8px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .idea__button {
     text-align: left;
     margin-top: 0px;
@@ -181,7 +181,7 @@ const { data } = await useMicroCMSGetList<Idea>({
   background: var(--color-green);
   mix-blend-mode: hue;
 } */
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .idea__item {
     border: 2px solid var(--color-green);
     padding: 10px;

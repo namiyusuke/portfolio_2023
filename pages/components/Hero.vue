@@ -116,9 +116,14 @@ if (process.browser) {
 .hero___thumbnail svg {
   max-inline-size: none;
   transform: rotate(-90deg);
-  width: calc(357 / 375 * 100vw);
+  width: min(calc(357 / 375 * 100vw), 500px);
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
+  .hero___thumbnail svg {
+    transform: rotate(0deg);
+  }
+} */
+@media screen and (min-width: 1024px) {
   .globalNav__item + .globalNav__item {
     margin-top: calc(20 / 16 * 1rem);
   }
@@ -156,7 +161,7 @@ if (process.browser) {
   font-weight: 200;
   display: none;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .hero__copy {
     display: block;
   }

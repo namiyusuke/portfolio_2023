@@ -113,7 +113,7 @@ const toggle = () => {
   flex-direction: column;
   row-gap: 1rem;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .header__nav {
     right: auto;
     position: fixed;

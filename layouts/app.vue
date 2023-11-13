@@ -157,7 +157,7 @@ if (process.browser) {
   flex-direction: column;
   /* row-gap: 1rem; */
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .header__nav {
     right: auto;
     position: fixed;
@@ -205,7 +205,7 @@ if (process.browser) {
   transition-property: all;
   transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .globalNav__item a {
     color: var(--color-white);
   }
@@ -272,7 +272,7 @@ if (process.browser) {
   font-weight: 200;
   font-size: 14px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .footer {
     display: none;
   }

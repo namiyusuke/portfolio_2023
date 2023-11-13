@@ -2,7 +2,7 @@
   <div>
     <NuxtLayout name="other">
       <div class="idea__bg">
-        <div class="section2 js-section">
+        <div class="section2 -ideaPage js-section">
           <div class="idea__all">
             <div class="idea__allInner">
               <div class="">
@@ -157,7 +157,7 @@ onMounted(() => {
   padding-top: 32px;
   padding-bottom: 370px;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .idea__all {
     display: flex;
     width: fit-content;

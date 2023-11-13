@@ -16,7 +16,7 @@
   filter: blur(1rem);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1024px) {
   .js-mouse-stalker .js-mouse-stalker__cursor,
   .js-mouse-stalker .js-mouse-stalker__follower {
     border-radius: 50%;
