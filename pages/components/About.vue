@@ -279,6 +279,8 @@
   font-size: 80px;
   column-gap: 21px;
   -webkit-text-stroke: 1px var(--color-green);
+  position: relative;
+  bottom: -14px;
 }
 .about__decorate2_top span {
   line-height: 1;
@@ -304,10 +306,13 @@
   .about__decorate2_top {
     font-size: 200px;
     column-gap: 21px;
+    bottom: 0;
   }
   .about__decorate2_bottom {
     font-size: 100px;
     column-gap: 32px;
+    position: relative;
+    top: 50px;
   }
   .about__decorate2 {
     right: -800px;

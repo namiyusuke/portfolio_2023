@@ -222,8 +222,17 @@ const { data } = await useMicroCMSGetList<Idea>({
 .idea__decorate_text {
   position: absolute;
   z-index: -1;
-  bottom: 47px;
+  top: 41px;
   left: 133px;
+}
+@media screen and (min-width: 1024px) {
+  .idea__decorate_text {
+    position: absolute;
+    z-index: -1;
+    top: auto;
+    bottom: 47px;
+    left: 133px;
+  }
 }
 .idea__decorate_text p {
   font-style: italic;
@@ -243,23 +252,43 @@ const { data } = await useMicroCMSGetList<Idea>({
   line-height: 0.7;
   position: absolute;
   z-index: -1;
-  right: 125px;
-  top: 67px;
   font-family: "Italiana", serif;
   font-weight: 400;
+  right: 1px;
+  bottom: 67px;
+}
+@media screen and (min-width: 1024px) {
+  .idea__decorate_backtext {
+    opacity: 0.3;
+    line-height: 0.7;
+    z-index: -1;
+    right: 125px;
+    top: 67px;
+    bottom: auto;
+  }
 }
 .idea__decorate_backTop {
   letter-spacing: 0.2rem;
   display: flex;
   letter-spacing: 1;
   column-gap: 24px;
-  font-size: calc(64 / 16 * 1rem);
+  font-size: calc(42 / 16 * 1rem);
   color: transparent;
   -webkit-text-stroke: 1px var(--color-white);
 }
 .idea__decorate_backBottom {
   color: transparent;
   -webkit-text-stroke: 1px var(--color-yellow);
-  font-size: calc(128 / 16 * 1rem);
+  font-size: calc(80 / 16 * 1rem);
+  margin-top: 10px;
+  display: inline-block;
+}
+@media screen and (min-width: 1024px) {
+  .idea__decorate_backTop {
+    font-size: calc(64 / 16 * 1rem);
+  }
+  .idea__decorate_backBottom {
+    font-size: calc(128 / 16 * 1rem);
+  }
 }
 </style>

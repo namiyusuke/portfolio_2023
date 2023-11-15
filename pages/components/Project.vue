@@ -103,7 +103,7 @@ const { data } = await useMicroCMSGetList<aaa>({
   display: none;
 }
 .projects__decorate1 {
-  font-size: 40vw;
+  font-size: 50vw;
   color: transparent;
   -webkit-text-stroke: 1px var(--color-green);
   left: calc(80%);
@@ -123,14 +123,13 @@ const { data } = await useMicroCMSGetList<aaa>({
   position: absolute;
   font-style: italic;
   z-index: -1;
-  left: 174px;
+  left: 150px;
   bottom: 40px;
-  min-width: 225px;
+  min-width: 322px;
   font-weight: 100;
   line-height: 168.75%;
-
   opacity: 0.5;
-  color: var(--yellow, #dfe091);
+  color: var(--color-white);
 }
 /* .projects__decorate-text p:nth-child(2),
 .projects__decorate-text p:nth-child(3) {
@@ -165,6 +164,20 @@ const { data } = await useMicroCMSGetList<aaa>({
 }
 @media screen and (min-width: 1024px) {
   .projects__decorate-text {
+    font-family: "Inter", serif;
+    position: absolute;
+    font-style: italic;
+    z-index: -1;
+    left: 174px;
+    bottom: 40px;
+    min-width: 225px;
+    font-weight: 100;
+    line-height: 168.75%;
+
+    opacity: 0.5;
+    color: var(--yellow, #dfe091);
+  }
+  .projects__decorate-text {
     right: 100px;
     bottom: auto;
     left: auto;
@@ -180,7 +193,6 @@ const { data } = await useMicroCMSGetList<aaa>({
     display: block;
     position: absolute;
     right: auto;
-
     top: -16%;
   }
   .projects__wrapper {
