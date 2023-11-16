@@ -109,7 +109,7 @@
   font-weight: 400;
 }
 .about__en {
-  font-size: calc(24 / 16 * 1rem);
+  font-size: calc(32 / 16 * 1rem);
 }
 @media screen and (min-width: 1024px) {
   .about__name {
