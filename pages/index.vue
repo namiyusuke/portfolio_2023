@@ -645,6 +645,7 @@ body::-webkit-scrollbar,
 }
 .l-wrapper {
   width: calc(331 / 375 * 100%);
+  max-width: 480px;
   margin-inline: auto;
 }
 .section3 {
