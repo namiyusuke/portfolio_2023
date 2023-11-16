@@ -196,7 +196,7 @@ const { data } = await useMicroCMSGetList<aaa>({
     top: -16%;
   }
   .projects__wrapper {
-    padding: 102px 360px 202px 360px;
+    padding: calc(102 / 900 * 100vh) 360px 202px 360px;
     position: relative;
     z-index: 4;
   }

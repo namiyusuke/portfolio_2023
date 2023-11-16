@@ -589,9 +589,7 @@ button:focus-visible {
 }
 @media screen and (min-width: 1024px) {
   .heading {
-    font-size: calc(48 / 16 * 1rem);
-
-    /* text-stroke: 2px #000; */
+    font-size: calc(48 / 900 * 100vh);
   }
   .scrollBar {
     position: fixed;
