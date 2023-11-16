@@ -686,6 +686,7 @@ body::-webkit-scrollbar,
   }
   .l-wrapper {
     width: 100%;
+    max-width: initial;
   }
 }
 .u-wbr {
