@@ -11,6 +11,12 @@ export default defineNuxtConfig({
         lang: "ja",
         prefix: "og: https://ogp.me/ns#",
       },
+      meta: [
+        {
+          property: "og:image",
+          content: "https://drive.google.com/uc?export=view&id=151F_9UyZxU6-SkV3xci-WUwXaCcIhh2q",
+        },
+      ],
     },
   },
   modules: ["nuxt-microcms-module", "@nuxtjs/google-fonts"],
