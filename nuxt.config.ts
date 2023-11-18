@@ -1,21 +1,18 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  // app: {
-  //   head: {
-  //     link: [
-  //       {
-  //         rel: "preconnect",
-  //         href: "https://fonts.googleapis.com",
-  //       },
-  //       {
-  //         rel: "stylesheet",
-  //         href: "https://fonts.googleapis.com/css2?family=Inter&display=swap",
-  //         crossorigin: "",
-  //       },
-  //     ],
-  //   },
-  // },
+  app: {
+    head: {
+      charset: "utf-16",
+      viewport: "width=device-width",
+      title: "俺のポートフォリオ",
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.svg" }],
+      htmlAttrs: {
+        lang: "ja",
+        prefix: "og: https://ogp.me/ns#",
+      },
+    },
+  },
   modules: ["nuxt-microcms-module", "@nuxtjs/google-fonts"],
   microCMS: {
     // mode: process.env.NODE_ENV === "production" ? "server" : "all",
