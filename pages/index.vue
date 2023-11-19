@@ -2,10 +2,10 @@
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
-import Hero from "./components/Hero.vue";
-import Idea from "./components/Idea.vue";
-import Project from "./components/Project.vue";
-import About from "./components/About.vue";
+// import Hero from "./components/Hero.vue";
+// import Idea from "./components/Idea.vue";
+// import Project from "./components/Project.vue";
+// import About from "./components/About.vue";
 import { ref, onMounted } from "vue";
 gsap.registerPlugin(ScrollTrigger);
 
