@@ -6,7 +6,7 @@
           <div class="idea__all">
             <div class="idea__allInner">
               <div class="">
-                <h2 class="heading">Idea</h2>
+                <h2 class="heading">archive</h2>
               </div>
               <div>
                 <div class="idea__body">
@@ -20,9 +20,7 @@
                         </div>
                       </a>
                     </li>
-                    <!-- idea__item -->
                   </ul>
-                  <!-- idea__list -->
                 </div>
               </div>
               <!-- idea__inner -->

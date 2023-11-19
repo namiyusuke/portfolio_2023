@@ -28,7 +28,7 @@ onMounted(() => {
       });
 
       if (process.browser) {
-        document.querySelectorAll("a[data-scroll-link]").forEach((anchor) => {
+        document.querySelectorAll("[data-scroll-link]").forEach((anchor) => {
           const id = anchor.getAttribute("data-scroll-link");
 
           let element = document.querySelector(`#${id}`);
@@ -37,9 +37,9 @@ onMounted(() => {
           anchor?.addEventListener("click", (e) => {
             // urlを変更しないようにする
             e.preventDefault();
+            console.log(element);
             // スクロール
-
-            lenis.scrollTo(element);
+            lenis.scrollTo(`#idea`);
           });
         });
       }

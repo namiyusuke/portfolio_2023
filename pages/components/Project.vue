@@ -147,7 +147,9 @@ const { data } = await useMicroCMSGetList<aaa>({
   padding: 10px;
   border: 2px solid var(--color-green);
 }
-
+.projects__item .projects__border figure {
+  pointer-events: none;
+}
 .projects__decorate2 {
   font-size: 100px;
   left: 16%;

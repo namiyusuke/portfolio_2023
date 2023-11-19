@@ -26,7 +26,6 @@ if (process.browser) {
         onUpdate: () => {
           // アップデート時のコールバック
           const e = obj.value * radius;
-          console.log(e);
           el.style.setProperty("--rootLoadingGradientValue1", `${Math.max(0, e - gradientWidth)}px`);
           el.style.setProperty("--rootLoadingGradientValue2", `${e.toString()}px`);
           el.style.setProperty("--rootLoadingGradientValue3", `${e + gradientWidth}px`);
@@ -354,7 +353,15 @@ if (process.browser) {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  font-size: 60px;
+
   z-index: -1;
+}
+#Loading p {
+  font-size: 28px;
+}
+@media screen and (min-width: 1024px) {
+  #Loading p {
+    font-size: 60px;
+  }
 }
 </style>

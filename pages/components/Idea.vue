@@ -8,6 +8,7 @@ type Idea = {
   content?: string;
   image?: MicroCMSImage;
 };
+onMounted(() => {});
 const { data } = await useMicroCMSGetList<Idea>({
   endpoint: "idea",
   queries: { limit: 8 },
@@ -60,9 +61,7 @@ const { data } = await useMicroCMSGetList<Idea>({
                 </div>
               </a>
             </li>
-            <!-- idea__item -->
           </ul>
-          <!-- idea__list -->
           <div>
             <div class="idea__button">
               <p><NuxtLink to="/idea">view more</NuxtLink></p>

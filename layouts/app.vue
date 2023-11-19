@@ -73,7 +73,7 @@ if (process.browser) {
                     </NuxtLink>
                   </li>
                   <li class="globalNav__item">
-                    <NuxtLink to="#contact" class="globalNav__link anime">
+                    <NuxtLink to="mailto:yu.namikawa18@gmail.com" class="globalNav__link anime">
                       <span class="text__main js-split" data-split-text>contact</span>
                       <span class="text__sub js-split" data-split-text>contact</span>
                     </NuxtLink>
