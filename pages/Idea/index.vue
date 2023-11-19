@@ -148,7 +148,7 @@ onMounted(() => {
 //   },
 // });
 </script>
-<style scoped>
+<style>
 .idea__all {
   width: calc(330 / 375 * 100%);
   margin: 0 auto;
