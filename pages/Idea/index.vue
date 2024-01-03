@@ -1,37 +1,12 @@
-<template>
-  <div>
-    <NuxtLayout name="other">
-      <div class="idea__bg">
-        <div class="section2 -ideaPage js-section">
-          <div class="idea__all">
-            <div class="idea__allInner">
-              <div class="">
-                <h2 class="heading">archive</h2>
-              </div>
-              <div>
-                <div class="idea__body">
-                  <ul class="idea__sectionList">
-                    <li v-for="idea in data?.contents" :key="idea.id" class="idea__item">
-                      <a :href="idea.url" target="_blank">
-                        <div class="idea__thumbnail">
-                          <figure>
-                            <img :src="idea.image?.url" alt="" />
-                          </figure>
-                        </div>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <!-- idea__inner -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </NuxtLayout>
-  </div>
-</template>
 <script setup lang="ts">
+// Lenis
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import Lenis from "@studio-freight/lenis";
+import { ref, onMounted } from "vue";
+definePageMeta({
+  layout: "other",
+});
 useHead({
   title: "idea App",
   meta: [{ name: "description", content: "My amazing site." }],
@@ -47,10 +22,7 @@ const { data } = await useMicroCMSGetList<Idea>({
 });
 
 // =============================
-// Lenis
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { gsap } from "gsap";
-import Lenis from "@studio-freight/lenis";
+
 gsap.registerPlugin(ScrollTrigger);
 /**
  * イベントリスナー
@@ -95,26 +67,6 @@ onMounted(() => {
     window.addEventListener("resize", updateViewportVariables);
     updateViewportVariables();
   }
-
-  const texts = document.querySelectorAll(".text");
-  gsap.set(texts, { y: "80%", clipPath: "inset(0 0 100% 0)" });
-  const sections = document.querySelectorAll(".section");
-  sections.forEach((elem) => {
-    const texq = elem.querySelectorAll(".text");
-
-    gsap.to(texq, {
-      y: 0,
-      clipPath: "inset(0 0 0% 0)",
-      duration: 0.8,
-      ease: "power2.out",
-      stagger: 0.03,
-      scrollTrigger: {
-        trigger: elem,
-        start: "left center",
-        horizontal: true,
-      },
-    });
-  });
 });
 // definePageMeta({
 //   pageTransition: {
@@ -148,6 +100,38 @@ onMounted(() => {
 //   },
 // });
 </script>
+<template>
+  <NuxtLayout>
+    <div class="idea__bg">
+      <div class="section2 -ideaPage js-section">
+        <div class="idea__all">
+          <div class="idea__allInner">
+            <div class="">
+              <h2 class="heading">archive</h2>
+            </div>
+            <div>
+              <div class="idea__body">
+                <ul class="idea__sectionList">
+                  <li v-for="idea in data?.contents" :key="idea.id" class="idea__item">
+                    <a :href="idea.url" target="_blank">
+                      <div class="idea__thumbnail">
+                        <figure>
+                          <img :src="idea.image?.url" alt="" />
+                        </figure>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <!-- idea__inner -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </NuxtLayout>
+</template>
+
 <style>
 .idea__all {
   width: calc(330 / 375 * 100%);

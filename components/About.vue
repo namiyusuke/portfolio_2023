@@ -1,8 +1,5 @@
 <template>
   <div class="section4 js-section" id="about">
-    <!-- <div class="about__decorate1">
-      <img src="~/assets/typo.png" alt="" />
-    </div> -->
     <p class="about__decorate2">
       <span class="about__decorate2_bottom"
         ><span>interaction</span><span>interaction</span><span>interaction</span><span>interaction</span
@@ -67,8 +64,6 @@
   position: relative;
   margin: 0 auto;
   margin-top: 140px;
-  /* padding-top: 100px; */
-  /* background-color: #e0e9ff; */
 }
 @media screen and (min-width: 1024px) {
   .about__flex {
@@ -88,9 +83,6 @@
     margin-top: 0px;
     width: 380px;
     height: 380px;
-    /* content: "";
-    position: relative; */
-    /* background-color: #e0e9ff; */
   }
   .about__snsWrapper {
     display: flex;
@@ -178,30 +170,8 @@
   top: 50px;
   height: 100%;
   width: 100%;
-  /* border-bottom: 1px solid black; */
 }
 
-/* .vertical__line {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 1px;
-  height: 100%;
-  background-color: black;
-  opacity: 0.4;
-} */
-
-/* .horizontal__line {
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  width: 100%;
-  height: 1px;
-  background-color: black;
-  opacity: 0.4;
-} */
-@media screen and (min-width: 1024px) {
-}
 .circle__container__inner {
   position: absolute;
   left: 50%;
@@ -209,7 +179,6 @@
   width: 90%;
   height: 100%;
   max-width: 1200px;
-  /* background-color: red; */
 }
 
 .circle {
@@ -250,12 +219,6 @@
   position: absolute;
   right: 5px;
   top: 5px;
-  /* -webkit-text-stroke: 1px var(--color-green);
-  top: -30px;
-  color: transparent;
-  font-size: 10vw;
-  left: 60px;
-  transform: scale(-1); */
 }
 .about__decorate2 {
   -webkit-text-stroke: 1px var(--color-white);
@@ -338,78 +301,80 @@
 import { ref, onMounted, onUpdated } from "vue";
 if (process.browser) {
   onMounted(() => {
-    const circleArea = document.querySelector(".circle__container__inner");
-    let circles = [...document.querySelectorAll(".circle")];
-    circles.shift();
+    if (document.querySelector(".about__right") !== null) {
+      const circleArea = document.querySelector(".circle__container__inner");
+      let circles = [...document.querySelectorAll(".circle")];
+      circles.shift();
 
-    let positions = {
-      circleOne: { x: 0, y: 0 },
-      circleTwo: { x: 0, y: 0 },
-      circleThree: { x: 0, y: 0 },
-      circleFour: { x: 0, y: 0 },
-    };
+      let positions = {
+        circleOne: { x: 0, y: 0 },
+        circleTwo: { x: 0, y: 0 },
+        circleThree: { x: 0, y: 0 },
+        circleFour: { x: 0, y: 0 },
+      };
 
-    let width = document.querySelector(".about__right").clientWidth;
-    let height = document.querySelector(".about__right").clientHeight;
+      let width = document.querySelector(".about__right").clientWidth;
+      let height = document.querySelector(".about__right").clientHeight;
 
-    let x = 0;
-    let y = 0;
+      let x = 0;
+      let y = 0;
 
-    let maxX = 180;
-    let maxY = 180;
+      let maxX = 180;
+      let maxY = 180;
 
-    if (window.innerWidth >= 768) {
-      maxX = 380;
-      maxY = 380;
-    }
-
-    let xDirection = 1;
-    let yDirection = 1;
-    function lerp(start, end, t) {
-      return start * (1 - t) + end * t;
-    }
-
-    circleArea.addEventListener("mousemove", (e) => {
-      const rect = e.target.getBoundingClientRect();
-      x = e.clientX - rect.left;
-      y = e.clientY - rect.top;
-    });
-
-    function animate() {
-      // Update x and y based on direction
-      x += 2 * xDirection; // You can adjust the increment value
-      y += 2 * yDirection; // You can adjust the increment value
-
-      // Change direction when reaching the boundaries
-      if (x >= maxX || x <= 0) {
-        xDirection *= -1;
-      }
-      if (y >= maxY || y <= 0) {
-        yDirection *= -1;
+      if (window.innerWidth >= 768) {
+        maxX = 380;
+        maxY = 380;
       }
 
-      // Animate circles
-      positions.circleOne.x = lerp(positions.circleOne.x, (x - width / 2) * 0.6, 0.1);
-      positions.circleOne.y = lerp(positions.circleOne.y, (y - height / 2) * 0.6, 0.1);
+      let xDirection = 1;
+      let yDirection = 1;
+      function lerp(start, end, t) {
+        return start * (1 - t) + end * t;
+      }
 
-      positions.circleTwo.x = lerp(positions.circleTwo.x, (-x + width / 2) * 0.6, 0.1);
-      positions.circleTwo.y = lerp(positions.circleTwo.y, (y - height / 2) * 0.6, 0.1);
+      circleArea.addEventListener("mousemove", (e) => {
+        const rect = e.target.getBoundingClientRect();
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+      });
 
-      positions.circleThree.x = lerp(positions.circleThree.x, (x - width / 2) * 0.6, 0.1);
-      positions.circleThree.y = lerp(positions.circleThree.y, (-y + height / 2) * 0.6, 0.1);
+      function animate() {
+        // Update x and y based on direction
+        x += 2 * xDirection; // You can adjust the increment value
+        y += 2 * yDirection; // You can adjust the increment value
 
-      positions.circleFour.x = lerp(positions.circleFour.x, (-x + width / 2) * 0.6, 0.1);
-      positions.circleFour.y = lerp(positions.circleFour.y, (-y + height / 2) * 0.6, 0.1);
+        // Change direction when reaching the boundaries
+        if (x >= maxX || x <= 0) {
+          xDirection *= -1;
+        }
+        if (y >= maxY || y <= 0) {
+          yDirection *= -1;
+        }
 
-      circles[0].style.transform = `translate(-50%, -50%) translate3d(${positions.circleOne.x}px, ${positions.circleOne.y}px, 0)`;
-      circles[1].style.transform = `translate(-50%, -50%) translate3d(${positions.circleTwo.x}px, ${positions.circleTwo.y}px, 0)`;
-      circles[2].style.transform = `translate(-50%, -50%) translate3d(${positions.circleThree.x}px, ${positions.circleThree.y}px, 0)`;
-      circles[3].style.transform = `translate(-50%, -50%) translate3d(${positions.circleFour.x}px, ${positions.circleFour.y}px, 0)`;
+        // Animate circles
+        positions.circleOne.x = lerp(positions.circleOne.x, (x - width / 2) * 0.6, 0.1);
+        positions.circleOne.y = lerp(positions.circleOne.y, (y - height / 2) * 0.6, 0.1);
 
-      requestAnimationFrame(animate);
+        positions.circleTwo.x = lerp(positions.circleTwo.x, (-x + width / 2) * 0.6, 0.1);
+        positions.circleTwo.y = lerp(positions.circleTwo.y, (y - height / 2) * 0.6, 0.1);
+
+        positions.circleThree.x = lerp(positions.circleThree.x, (x - width / 2) * 0.6, 0.1);
+        positions.circleThree.y = lerp(positions.circleThree.y, (-y + height / 2) * 0.6, 0.1);
+
+        positions.circleFour.x = lerp(positions.circleFour.x, (-x + width / 2) * 0.6, 0.1);
+        positions.circleFour.y = lerp(positions.circleFour.y, (-y + height / 2) * 0.6, 0.1);
+
+        circles[0].style.transform = `translate(-50%, -50%) translate3d(${positions.circleOne.x}px, ${positions.circleOne.y}px, 0)`;
+        circles[1].style.transform = `translate(-50%, -50%) translate3d(${positions.circleTwo.x}px, ${positions.circleTwo.y}px, 0)`;
+        circles[2].style.transform = `translate(-50%, -50%) translate3d(${positions.circleThree.x}px, ${positions.circleThree.y}px, 0)`;
+        circles[3].style.transform = `translate(-50%, -50%) translate3d(${positions.circleFour.x}px, ${positions.circleFour.y}px, 0)`;
+
+        requestAnimationFrame(animate);
+      }
+
+      animate();
     }
-
-    animate();
   });
 }
 </script>

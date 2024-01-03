@@ -1,10 +1,212 @@
 <template>
+  <!-- <NuxtLayout> -->
+  <NuxtPage />
+
+  <div
+    class="rootLoading js-rootLoading"
+    data-is-inited="true"
+    data-is-home="true"
+    data-is-loaded="true"
+    style="--rootLoadingGradientValue1: 0px; --rootLoadingGradientValue2: 0px; --rootLoadingGradientValue3: 0px"
+  >
+    <div id="Loading">
+      <p class="loading_textWrap target">nami animation</p>
+    </div>
+    <div class="indicator"></div>
+  </div>
   <div class="js-mouse-stalker">
     <div class="js-mouse-stalker__cursor" :style="{ top: mouseY - 300 + 'px', left: mouseX - 300 + 'px' }"></div>
     <div class="js-mouse-stalker__follower"></div>
   </div>
-  <NuxtPage @mousemove="mouseStalker" />
+  <div @mousemove="mouseStalker"></div>
 </template>
+<script setup lang="ts">
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
+import Lenis from "@studio-freight/lenis";
+import { ref, onMounted } from "vue";
+useHead({
+  title: "portfolio-nami",
+  meta: [{ name: "description", content: "My amazing site." }],
+});
+
+gsap.registerPlugin(ScrollTrigger);
+
+// =============================
+// Lenis
+if (process.browser) {
+  const updateViewportVariables = () => {
+    const e = 0.01 * document.documentElement.clientWidth;
+    const i = 0.01 * document.documentElement.clientHeight;
+    document.documentElement.style.setProperty("--vw", `${e}px`);
+    document.documentElement.style.setProperty("--vh", `${i}px`);
+    document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
+    document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
+  };
+
+  window.addEventListener("resize", updateViewportVariables);
+  updateViewportVariables();
+}
+
+if (process.browser) {
+  onMounted(() => {
+    // オブジェクトの初期化
+    function RootLoading() {
+      let obj = { value: 0 };
+      let radius = 1.5;
+      let gradientWidth = 0;
+      const el = document.querySelector(".js-rootLoading");
+      const e = el.offsetWidth * 0.5,
+        i = el.offsetHeight;
+      radius = Math.sqrt(e * e + i * i) * 1.2;
+      gradientWidth = radius * 0.3;
+      // Tweenの作成
+      let tween = gsap.to(obj, {
+        value: 1, // 最終的な値
+        duration: 1, // アニメーションの期間（秒）
+        delay: 0, // アニメーション開始までの遅延（秒）
+        // ease: "power3.inOut", // イージング関数
+        ease: "sine", // イージング関数
+        onUpdate: () => {
+          // アップデート時のコールバック
+          const e = obj.value * radius;
+          el.style.setProperty("--rootLoadingGradientValue1", `${Math.max(0, e - gradientWidth)}px`);
+          el.style.setProperty("--rootLoadingGradientValue2", `${e.toString()}px`);
+          el.style.setProperty("--rootLoadingGradientValue3", `${e + gradientWidth}px`);
+        },
+        onComplete: () => {
+          // // 完了時のコールバック
+          // dispose();
+          el.classList.add("is-hidden");
+        },
+      });
+    }
+    const splitText = (el) => {
+      if (el.firstChild === null || el.textContent === null) {
+        return;
+      }
+      const characters = el.textContent.split("").map((character, index) => {
+        const span = document.createElement("span");
+        span.textContent = character;
+        span.style.setProperty("--index", index.toString());
+        span.classList.add("c");
+        return span;
+      });
+      el.firstChild.replaceWith(...characters);
+    };
+    const target = document.querySelector(".target");
+    if (target) {
+      splitText(target);
+    }
+    class test {
+      constructor() {
+        this.$el = document.getElementById("Loading");
+        this.$chars = this.$el.querySelectorAll(".c");
+        this._init();
+      }
+      _init() {
+        this.$chars.forEach((t, e) => {
+          gsap.fromTo(
+            t,
+            {
+              opacity: 1,
+            },
+            {
+              opacity: 0,
+              delay: 0.4,
+              duration: 0.4 + 0.1 * e,
+              onComplete: () => {
+                // // 完了時のコールバック
+                // dispose();
+              },
+            }
+          );
+        });
+      }
+    }
+    async function init() {
+      new test();
+    }
+    init().then(() => {
+      setTimeout(() => {
+        RootLoading();
+      }, 2000);
+    });
+  });
+
+  // });
+  if (process.browser) {
+    const updateViewportVariables = () => {
+      const e = 0.01 * document.documentElement.clientWidth;
+      const i = 0.01 * document.documentElement.clientHeight;
+      document.documentElement.style.setProperty("--vw", `${e}px`);
+      document.documentElement.style.setProperty("--vh", `${i}px`);
+      document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
+      document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
+    };
+
+    window.addEventListener("resize", updateViewportVariables);
+    updateViewportVariables();
+  }
+}
+// =============================
+// Lenis
+let progress = ref(0);
+// onMounted(() => {
+if (process.browser) {
+  /**
+   * イベントリスナー
+   */
+  const listener = (event: any) => {
+    // リサイズ時に行う処理
+    if (event.matches) {
+      let lenis = new Lenis({
+        orientation: "horizontal",
+        syncTouch: true,
+        smoothTouch: true,
+        gestureOrientation: ScrollTrigger.isTouch ? "horizontal" : "vertical",
+      });
+
+      // if (process.browser) {
+      document.querySelectorAll("[data-scroll-link]").forEach((anchor) => {
+        const id = anchor.getAttribute("data-scroll-link");
+        let element = document.querySelector(`#${id}`);
+        // クリック時に目的の箇所までスクロールする
+        anchor?.addEventListener("click", (e) => {
+          // urlを変更しないようにする
+          e.preventDefault();
+          // スクロール
+          lenis.scrollTo(element);
+        });
+      });
+
+      lenis.on("scroll", ScrollTrigger.update);
+
+      gsap.ticker.add((time: number) => {
+        progress.value = lenis.progress;
+        lenis.raf(time * 1000);
+      });
+      // }
+    }
+  };
+  const mediaQueryList = window.matchMedia("(min-width: 1024px)");
+  mediaQueryList.addEventListener("change", listener);
+  // 初期化処理
+  listener(mediaQueryList);
+  gsap.ticker.lagSmoothing(0);
+}
+// onMounted(() => {
+const mouseX = ref(0);
+const mouseY = ref(0);
+const posX = ref(0);
+const posY = ref(0);
+const mouseStalker = (e: any) => {
+  mouseX.value = e.pageX;
+  mouseY.value = e.pageY;
+};
+// });
+</script>
+
 <style>
 .page-enter-active,
 .page-leave-active {
@@ -808,30 +1010,3 @@ body::-webkit-scrollbar,
   }
 }
 </style>
-<script setup lang="ts">
-useHead({
-  title: "portfolio-nami",
-  meta: [{ name: "description", content: "My amazing site." }],
-});
-// definePageMeta({
-//   pageTransition: {
-//     name: "custom-flip",
-//     mode: "out-in",
-//     onBeforeEnter: (el) => {
-//       console.log("Before enter...");
-//     },
-//     onEnter: (el, done) => {},
-//     onAfterEnter: (el) => {},
-//   },
-// });
-import { ref, onMounted } from "vue";
-const mouseX = ref(0);
-const mouseY = ref(0);
-const posX = ref(0);
-const posY = ref(0);
-const mouseStalker = (e: any) => {
-  mouseX.value = e.pageX;
-  mouseY.value = e.pageY;
-};
-</script>
-<style></style>

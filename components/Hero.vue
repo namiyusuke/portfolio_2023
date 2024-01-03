@@ -3,94 +3,9 @@ import { ref, onMounted, onUpdated } from "vue";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
-
+import Lenis from "@studio-freight/lenis";
 if (process.browser) {
   onMounted(() => {
-    // オブジェクトの初期化
-    function RootLoading() {
-      let obj = { value: 0 };
-      let radius = 1.5;
-      let gradientWidth = 0;
-      const el = document.querySelector(".js-rootLoading");
-      const e = el.offsetWidth * 0.5,
-        i = el.offsetHeight;
-      radius = Math.sqrt(e * e + i * i) * 1.2;
-      gradientWidth = radius * 0.3;
-      // Tweenの作成
-      let tween = gsap.to(obj, {
-        value: 1, // 最終的な値
-        duration: 1, // アニメーションの期間（秒）
-        delay: 0, // アニメーション開始までの遅延（秒）
-        // ease: "power3.inOut", // イージング関数
-        ease: "sine", // イージング関数
-        onUpdate: () => {
-          // アップデート時のコールバック
-          const e = obj.value * radius;
-          el.style.setProperty("--rootLoadingGradientValue1", `${Math.max(0, e - gradientWidth)}px`);
-          el.style.setProperty("--rootLoadingGradientValue2", `${e.toString()}px`);
-          el.style.setProperty("--rootLoadingGradientValue3", `${e + gradientWidth}px`);
-        },
-        onComplete: () => {
-          // // 完了時のコールバック
-          // dispose();
-          el.classList.add("is-hidden");
-        },
-      });
-    }
-
-    const splitText = (el) => {
-      if (el.firstChild === null || el.textContent === null) {
-        return;
-      }
-      const characters = el.textContent.split("").map((character, index) => {
-        const span = document.createElement("span");
-        span.textContent = character;
-        span.style.setProperty("--index", index.toString());
-        span.classList.add("c");
-        return span;
-      });
-      el.firstChild.replaceWith(...characters);
-    };
-    const target = document.querySelector(".target");
-
-    if (target) {
-      splitText(target);
-    }
-    class test {
-      constructor() {
-        this.$el = document.getElementById("Loading");
-        this.$chars = this.$el.querySelectorAll(".c");
-        this._init();
-      }
-      _init() {
-        this.$chars.forEach((t, e) => {
-          gsap.fromTo(
-            t,
-            {
-              opacity: 1,
-            },
-            {
-              opacity: 0,
-              delay: 0.4,
-              duration: 0.4 + 0.1 * e,
-              onComplete: () => {
-                // // 完了時のコールバック
-                // dispose();
-              },
-            }
-          );
-        });
-      }
-    }
-
-    async function init() {
-      new test();
-    }
-    init().then(() => {
-      setTimeout(() => {
-        RootLoading();
-      }, 2000);
-    });
     function second() {
       const name = document.querySelectorAll(".hero__ramdom path");
       const tl = gsap.timeline();
@@ -118,26 +33,6 @@ if (process.browser) {
 </script>
 <template>
   <div class="section">
-    <div
-      class="rootLoading js-rootLoading"
-      data-is-inited="true"
-      data-is-home="true"
-      data-is-loaded="true"
-      style="--rootLoadingGradientValue1: 0px; --rootLoadingGradientValue2: 0px; --rootLoadingGradientValue3: 0px"
-    >
-      <!-- <p class="text">
-        <svg viewBox="0 0 70 19" role="img" aria-label="loading">
-          <path
-            d="M0.15,0.71h2.08v12.18h6.94v1.82H0.15V0.71z M9.99,9.51c0-3.72,2.48-5.4,5.06-5.4c2.6,0,5.08,1.68,5.08,5.4 s-2.48,5.4-5.08,5.4C12.47,14.91,9.99,13.23,9.99,9.51z M15.05,13.21c1.68,0,3.16-1.14,3.16-3.7s-1.48-3.7-3.16-3.7 s-3.14,1.14-3.14,3.7S13.37,13.21,15.05,13.21z M21.37,11.99c0-2,1.46-2.82,3.32-3.04l2.58-0.3c0.96-0.12,1.28-0.3,1.28-0.62V7.75 c0-1.66-0.86-2.1-2.32-2.1c-1.5,0-2.34,0.44-2.34,1.76v0.24h-1.94V7.23c0-2.08,1.46-3.12,4.32-3.12c2.94,0,4.3,1.1,4.3,3.62v6.98 h-1.9v-1.68h-0.08c-0.2,0.4-1.18,1.88-3.74,1.88C22.91,14.91,21.37,14.05,21.37,11.99z M25.35,13.33c2.2,0,3.2-1.36,3.2-2.48V9.71 c-0.14,0.22-0.4,0.36-1.42,0.48l-1.96,0.26c-1.3,0.16-1.78,0.62-1.78,1.44C23.39,12.87,24.09,13.33,25.35,13.33z M32.19,9.51 c0-3.78,2.32-5.4,4.64-5.4c1.54,0,2.86,0.7,3.48,1.84V0.71h2.02v14h-2.02v-1.64c-0.62,1.14-1.94,1.84-3.48,1.84 C34.51,14.91,32.19,13.27,32.19,9.51z M37.25,13.21c1.6,0,3.16-1.16,3.16-3.7s-1.56-3.7-3.16-3.7c-1.62,0-3.14,1.16-3.14,3.7 S35.63,13.21,37.25,13.21z M45.57,0.11c0.64,0,1.2,0.54,1.2,1.2c0,0.68-0.56,1.2-1.2,1.2s-1.2-0.52-1.2-1.2 C44.37,0.65,44.93,0.11,45.57,0.11z M44.57,4.31h2.02v10.4h-2.02V4.31z M53.63,5.81c-1.64,0-2.78,1.02-2.78,2.88v6.02h-2.02V4.31 h2.02v2.08h0.06c0.18-0.78,1.18-2.28,3.5-2.28c2.04,0,3.68,1.18,3.68,4.12v6.48h-2.02V8.69C56.07,6.83,55.27,5.81,53.63,5.81z M60.13,15.53h1.78c0.06,1.18,1.34,1.78,2.8,1.78c1.72,0,3.12-0.82,3.12-2.82v-1.74h-0.04c-0.64,1.08-1.98,1.72-3.44,1.72 c-2.28,0-4.52-1.5-4.52-5.18c0-3.68,2.26-5.18,4.52-5.18c1.46,0,2.8,0.64,3.44,1.72h0.04V4.31h2.02v10.18c0,3.58-2.92,4.4-5.1,4.4 C62.69,18.89,60.15,18.17,60.13,15.53z M64.83,12.79c1.6,0,3.1-1.12,3.1-3.5c0-2.38-1.5-3.48-3.1-3.48c-1.62,0-3.1,1.1-3.1,3.48 C61.73,11.67,63.21,12.79,64.83,12.79z"
-            class="astro-7SHFHBFC"
-          ></path>
-        </svg> -->
-      <div class="" id="Loading">
-        <p class="loading_textWrap target">nami animation</p>
-      </div>
-      <!-- </p> -->
-      <div class="indicator"></div>
-    </div>
     <div class="hero">
       <div class="hero___thumbnail">
         <svg width="909" height="527" viewBox="0 0 909 527" fill="none" xmlns="http://www.w3.org/2000/svg">
