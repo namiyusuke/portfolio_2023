@@ -27,32 +27,45 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  * イベントリスナー
  */
-const listener = (event: any) => {
-  // リサイズ時に行う処理
-  if (event.matches) {
-    let lenis = new Lenis({
-      orientation: "horizontal",
-      syncTouch: true,
-      smoothTouch: true,
-      gestureOrientation: ScrollTrigger.isTouch ? "horizontal" : "vertical",
-    });
-
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time: number) => {
-      lenis.raf(time * 1000);
-    });
-  }
-};
-
 // リスナー登録
 if (process.browser) {
-  const mediaQueryList = window.matchMedia("(min-width: 1024px)");
-  mediaQueryList.addEventListener("change", listener);
-  // 初期化処理
-  listener(mediaQueryList);
-}
+  onMounted(() => {
+    const listener = (event: any) => {
+      // リサイズ時に行う処理
+      if (event.matches) {
+        let lenis = new Lenis({
+          orientation: "horizontal",
+          syncTouch: true,
+          smoothTouch: true,
+          gestureOrientation: ScrollTrigger.isTouch ? "horizontal" : "vertical",
+        });
+        document.querySelectorAll("[data-scroll-link]").forEach((anchor) => {
+          const id = anchor.getAttribute("data-scroll-link");
+          let element = document.querySelector(`#${id}`);
+          // クリック時に目的の箇所までスクロールする
+          anchor?.addEventListener("click", (e) => {
+            // urlを変更しないようにする
+            e.preventDefault();
+            // スクロール
+            lenis.scrollTo(element);
+          });
+        });
 
-gsap.ticker.lagSmoothing(0);
+        lenis.on("scroll", ScrollTrigger.update);
+        gsap.ticker.add((time: number) => {
+          lenis.raf(time * 1000);
+        });
+      }
+    };
+
+    const mediaQueryList = window.matchMedia("(min-width: 1024px)");
+    mediaQueryList.addEventListener("change", listener);
+    // 初期化処理
+    listener(mediaQueryList);
+
+    gsap.ticker.lagSmoothing(0);
+  });
+}
 onMounted(() => {
   if (process.browser) {
     const updateViewportVariables = () => {

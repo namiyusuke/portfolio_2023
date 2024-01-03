@@ -83,7 +83,6 @@ if (process.browser) {
       </div>
     </nav>
   </header>
-
   <slot />
   <footer class="footer">
     <p class="footer__copy">@2023 Yusuke Namikawa</p>

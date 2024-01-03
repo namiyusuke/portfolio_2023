@@ -1,7 +1,6 @@
 <template>
   <!-- <NuxtLayout> -->
   <NuxtPage />
-
   <div
     class="rootLoading js-rootLoading"
     data-is-inited="true"
@@ -34,19 +33,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 // =============================
 // Lenis
-if (process.browser) {
-  const updateViewportVariables = () => {
-    const e = 0.01 * document.documentElement.clientWidth;
-    const i = 0.01 * document.documentElement.clientHeight;
-    document.documentElement.style.setProperty("--vw", `${e}px`);
-    document.documentElement.style.setProperty("--vh", `${i}px`);
-    document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
-    document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
-  };
+// if (process.browser) {
+//   const updateViewportVariables = () => {
+//     const e = 0.01 * document.documentElement.clientWidth;
+//     const i = 0.01 * document.documentElement.clientHeight;
+//     document.documentElement.style.setProperty("--vw", `${e}px`);
+//     document.documentElement.style.setProperty("--vh", `${i}px`);
+//     document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
+//     document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
+//   };
 
-  window.addEventListener("resize", updateViewportVariables);
-  updateViewportVariables();
-}
+//   window.addEventListener("resize", updateViewportVariables);
+//   updateViewportVariables();
+// }
 
 if (process.browser) {
   onMounted(() => {
@@ -133,68 +132,29 @@ if (process.browser) {
       }, 2000);
     });
   });
-
-  // });
-  if (process.browser) {
-    const updateViewportVariables = () => {
-      const e = 0.01 * document.documentElement.clientWidth;
-      const i = 0.01 * document.documentElement.clientHeight;
-      document.documentElement.style.setProperty("--vw", `${e}px`);
-      document.documentElement.style.setProperty("--vh", `${i}px`);
-      document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
-      document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
-    };
-
-    window.addEventListener("resize", updateViewportVariables);
-    updateViewportVariables();
-  }
 }
+// });
+if (process.browser) {
+  const updateViewportVariables = () => {
+    const e = 0.01 * document.documentElement.clientWidth;
+    const i = 0.01 * document.documentElement.clientHeight;
+    document.documentElement.style.setProperty("--vw", `${e}px`);
+    document.documentElement.style.setProperty("--vh", `${i}px`);
+    document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
+    document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
+  };
+
+  window.addEventListener("resize", updateViewportVariables);
+  updateViewportVariables();
+}
+
 // =============================
 // Lenis
-let progress = ref(0);
-// onMounted(() => {
-if (process.browser) {
-  /**
-   * イベントリスナー
-   */
-  const listener = (event: any) => {
-    // リサイズ時に行う処理
-    if (event.matches) {
-      let lenis = new Lenis({
-        orientation: "horizontal",
-        syncTouch: true,
-        smoothTouch: true,
-        gestureOrientation: ScrollTrigger.isTouch ? "horizontal" : "vertical",
-      });
 
-      // if (process.browser) {
-      document.querySelectorAll("[data-scroll-link]").forEach((anchor) => {
-        const id = anchor.getAttribute("data-scroll-link");
-        let element = document.querySelector(`#${id}`);
-        // クリック時に目的の箇所までスクロールする
-        anchor?.addEventListener("click", (e) => {
-          // urlを変更しないようにする
-          e.preventDefault();
-          // スクロール
-          lenis.scrollTo(element);
-        });
-      });
+// if (process.browser) {
 
-      lenis.on("scroll", ScrollTrigger.update);
+// }
 
-      gsap.ticker.add((time: number) => {
-        progress.value = lenis.progress;
-        lenis.raf(time * 1000);
-      });
-      // }
-    }
-  };
-  const mediaQueryList = window.matchMedia("(min-width: 1024px)");
-  mediaQueryList.addEventListener("change", listener);
-  // 初期化処理
-  listener(mediaQueryList);
-  gsap.ticker.lagSmoothing(0);
-}
 // onMounted(() => {
 const mouseX = ref(0);
 const mouseY = ref(0);
@@ -204,7 +164,6 @@ const mouseStalker = (e: any) => {
   mouseX.value = e.pageX;
   mouseY.value = e.pageY;
 };
-// });
 </script>
 
 <style>
