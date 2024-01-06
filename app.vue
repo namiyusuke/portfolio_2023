@@ -687,7 +687,7 @@ button:focus-visible {
   background-repeat: repeat;
   background-size: contain;
   opacity: 0;
-  transition: 0.6s ease-out;
+  transition: 0.65s ease-out;
 }
 .is-bgActive .text_bg {
   opacity: 1;
