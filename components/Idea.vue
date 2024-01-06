@@ -8,7 +8,7 @@ type Idea = {
   content?: string;
   image?: MicroCMSImage;
 };
-onMounted(() => {});
+
 const { data } = await useMicroCMSGetList<Idea>({
   endpoint: "idea",
   queries: { limit: 8 },
@@ -44,7 +44,7 @@ const { data } = await useMicroCMSGetList<Idea>({
 </script>
 
 <template>
-  <div class="section2 js-section" id="idea">
+  <div class="section2 js-section js-bg" id="idea">
     <div class="l-wrapper">
       <div class="idea__inner">
         <div class="heading__line">
@@ -71,14 +71,14 @@ const { data } = await useMicroCMSGetList<Idea>({
       </div>
       <!-- idea__inner -->
     </div>
-    <div class="idea__decorate_backtext">
+    <!-- <div class="idea__decorate_backtext">
       <div class="idea__decorate_backTop">
         <span class="idea__decorate_left">frontend</span>
         <span class="idea__decorate_right">frontend</span>
       </div>
       <span class="idea__decorate_backBottom">developer</span>
-    </div>
-    <div class="idea__decorate_text">
+    </div> -->
+    <!-- <div class="idea__decorate_text">
       <p>
         <span class="u-wbr">After studying psychology at university and graduating from a vocational</span>
         <span class="u-wbr">school, he worked at a children's home as a social worker.</span>
@@ -96,7 +96,6 @@ const { data } = await useMicroCMSGetList<Idea>({
         <span class="u-wbr">to do: Animation/interaction using JS and CSS, markup</span>
         <span class="u-wbr">Hobbies: Bouldering, muscle training, sauna, cooking</span>
       </p>
-    </div>
+    </div> -->
   </div>
 </template>
-<style></style>

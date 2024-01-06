@@ -6,8 +6,21 @@ import { ref, onMounted } from "vue";
 definePageMeta({
   layout: "app",
 });
+import type { MicroCMSImage } from "microcms-js-sdk";
+type Idea = {
+  title?: string;
+  content?: string;
+  image?: MicroCMSImage;
+};
+// onMounted(() => {});
+const { data } = await useMicroCMSGetList<Idea>({
+  endpoint: "idea",
+  queries: { limit: 8 },
+});
+
 let progress = ref(0);
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
   /**
    * イベントリスナー
    */
@@ -40,6 +53,63 @@ onMounted(() => {
           lenis.raf(time * 1000);
         });
       }
+      // 今回の交差を監視する要素
+      const boxes = document.querySelectorAll(".js-bg");
+      const options = {
+        root: null, // 今回はビューポートをルート要素とする
+        rootMargin: "0% -50%", // ビューポートの中心を判定基準にする
+        threshold: 0, // 閾値は0
+      };
+      const observer = new IntersectionObserver(doWhenIntersect, options);
+      // それぞれのboxを監視する
+      boxes.forEach((box) => {
+        observer.observe(box);
+      });
+
+      /**
+       * 交差したときに呼び出す関数
+       * @param entries
+       */
+      function doWhenIntersect(entries) {
+        // 交差検知をしたもののなかで、isIntersectingがtrueのDOMを色を変える関数に渡す
+        entries.forEach((entry) => {
+          console.log(entry);
+          if (entry.isIntersecting || entry.boundingClientRect.left < 0) {
+            document.documentElement.classList.add("is-bgActive");
+          } else {
+            document.documentElement.classList.remove("is-bgActive");
+          }
+        });
+      }
+    } else {
+      // 今回の交差を監視する要素
+      const boxes = document.querySelectorAll(".js-bg");
+      const options = {
+        root: null, // 今回はビューポートをルート要素とする
+        rootMargin: "-10% 0%", // ビューポートの中心を判定基準にする
+        threshold: 0, // 閾値は0
+      };
+      const observer = new IntersectionObserver(doWhenIntersect, options);
+      // それぞれのboxを監視する
+      boxes.forEach((box) => {
+        observer.observe(box);
+      });
+
+      /**
+       * 交差したときに呼び出す関数
+       * @param entries
+       */
+      function doWhenIntersect(entries) {
+        // 交差検知をしたもののなかで、isIntersectingがtrueのDOMを色を変える関数に渡す
+        entries.forEach((entry) => {
+          console.log(entry);
+          if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
+            document.documentElement.classList.add("is-bgActive");
+          } else {
+            document.documentElement.classList.remove("is-bgActive");
+          }
+        });
+      }
     }
   };
   const mediaQueryList = window.matchMedia("(min-width: 1024px)");
@@ -50,13 +120,15 @@ onMounted(() => {
 });
 </script>
 <template>
-  <NuxtLayout>
+  <div class="">
+    <div class="bg"></div>
+    <div class="text_bg"></div>
+    <!-- <NuxtLayout> -->
     <div :style="{ '--scroll-progress': progress }">
       <div class="pageCover"></div>
       <div class="flex">
         <main>
           <div class="scrollBar scrolling" id="ScrollBar">
-            <div class="bg"></div>
             <div class="scrollBar_track"><div class="scrollBar_progress"></div></div>
             <!-- <div class="scrollBar_arrow"><div class="arrow">→</div></div> -->
           </div>
@@ -67,7 +139,8 @@ onMounted(() => {
         </main>
       </div>
     </div>
-  </NuxtLayout>
+    <!-- </NuxtLayout> -->
+  </div>
 </template>
 <style>
 @media (prefers-color-scheme: light) {

@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     // mode: process.env.NODE_ENV === "production" ? "server" : "all",
     serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
     apiKey: process.env.MICROCMS_API_KEY,
-    target: "all",
+    // target: "all",
   },
   // runtimeConfig: {
   //   apiKey: "60bKCnTtR4sKY4sBzxQLZOn4NBiiTnZqBhB3",
@@ -53,6 +53,6 @@ export default defineNuxtConfig({
     },
   },
   experimental: {
-    viewTransition: false,
+    viewTransition: true,
   },
 });

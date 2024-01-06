@@ -1,23 +1,26 @@
 <template>
-  <!-- <NuxtLayout> -->
-  <NuxtPage />
-  <div
-    class="rootLoading js-rootLoading"
-    data-is-inited="true"
-    data-is-home="true"
-    data-is-loaded="true"
-    style="--rootLoadingGradientValue1: 0px; --rootLoadingGradientValue2: 0px; --rootLoadingGradientValue3: 0px"
-  >
-    <div id="Loading">
-      <p class="loading_textWrap target">nami animation</p>
+  <div>
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+    <div
+      class="rootLoading js-rootLoading"
+      data-is-inited="true"
+      data-is-home="true"
+      data-is-loaded="true"
+      style="--rootLoadingGradientValue1: 0px; --rootLoadingGradientValue2: 0px; --rootLoadingGradientValue3: 0px"
+    >
+      <div id="Loading">
+        <p class="loading_textWrap target">nami animation</p>
+      </div>
+      <div class="indicator"></div>
     </div>
-    <div class="indicator"></div>
+    <div class="js-mouse-stalker">
+      <div class="js-mouse-stalker__cursor" :style="{ top: mouseY - 300 + 'px', left: mouseX - 300 + 'px' }"></div>
+      <div class="js-mouse-stalker__follower"></div>
+    </div>
+    <div @mousemove="mouseStalker"></div>
   </div>
-  <div class="js-mouse-stalker">
-    <div class="js-mouse-stalker__cursor" :style="{ top: mouseY - 300 + 'px', left: mouseX - 300 + 'px' }"></div>
-    <div class="js-mouse-stalker__follower"></div>
-  </div>
-  <div @mousemove="mouseStalker"></div>
 </template>
 <script setup lang="ts">
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -33,19 +36,19 @@ gsap.registerPlugin(ScrollTrigger);
 
 // =============================
 // Lenis
-// if (process.browser) {
-//   const updateViewportVariables = () => {
-//     const e = 0.01 * document.documentElement.clientWidth;
-//     const i = 0.01 * document.documentElement.clientHeight;
-//     document.documentElement.style.setProperty("--vw", `${e}px`);
-//     document.documentElement.style.setProperty("--vh", `${i}px`);
-//     document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
-//     document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
-//   };
+if (process.browser) {
+  const updateViewportVariables = () => {
+    const e = 0.01 * document.documentElement.clientWidth;
+    const i = 0.01 * document.documentElement.clientHeight;
+    document.documentElement.style.setProperty("--vw", `${e}px`);
+    document.documentElement.style.setProperty("--vh", `${i}px`);
+    document.documentElement.style.setProperty("--vmax", `${Math.max(e, i)}px`);
+    document.documentElement.style.setProperty("--vmin", `${Math.min(e, i)}px`);
+  };
 
-//   window.addEventListener("resize", updateViewportVariables);
-//   updateViewportVariables();
-// }
+  window.addEventListener("resize", updateViewportVariables);
+  updateViewportVariables();
+}
 
 if (process.browser) {
   onMounted(() => {
@@ -529,13 +532,9 @@ a {
 }
 
 body {
-  /* margin: 0;
-  display: flex;
-  place-items: center; */
-  background: linear-gradient(109deg, rgba(60, 103, 84, 0.7) 11.82%, rgba(60, 103, 84, 0) 82.68%);
+  /* background: linear-gradient(109deg, rgba(60, 103, 84, 0.7) 11.82%, rgba(60, 103, 84, 0) 82.68%); */
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  /* background-color: #0f0f0f; */
 }
 body:before {
   position: fixed;
@@ -654,6 +653,49 @@ button:focus-visible {
   overflow: hidden;
   width: 100%;
 }
+.bg {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  background-image: url("~/assets/green_filter01-sp.png");
+  background-size: cover;
+  /* background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%); */
+  transition: background-image 2s ease;
+}
+.is-bgActive .bg {
+  transition: background-image 1.4s ease;
+  content: "";
+  background-image: url("~/assets/green_filter02-sp.png");
+}
+.text_bg {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  background-image: url("~/assets/green_text-sp.png");
+  background-repeat: repeat;
+  background-size: contain;
+  opacity: 0;
+  transition: 0.6s ease-out;
+}
+.is-bgActive .text_bg {
+  opacity: 1;
+}
+.is-bgActive .bg {
+  content: "";
+  background-image: url("~/assets/green_filter02.png");
+}
 @media screen and (min-width: 1024px) {
   .heading {
     font-size: calc(48 / 900 * 100vh);
@@ -687,7 +729,7 @@ body::-webkit-scrollbar,
   height: 0px;
 }
 .section {
-  background: linear-gradient(108deg, rgba(60, 103, 84, 0.7) 15.65%, rgba(60, 103, 84, 0) 63.54%);
+  /* background: linear-gradient(108deg, rgba(60, 103, 84, 0.7) 15.65%, rgba(60, 103, 84, 0) 63.54%); */
 }
 .section2 {
   padding: calc(100 / 16 * 1rem) 0 calc(180 / 16 * 1rem) 0;
@@ -697,12 +739,12 @@ body::-webkit-scrollbar,
 .section4 {
   overflow: hidden;
   position: relative;
-  background: radial-gradient(
+  /* background: radial-gradient(
     80.16% 84.65% at 7.73% 6.15%,
     rgba(60, 103, 84, 0.7) 0%,
     rgba(60, 103, 84, 0.21) 61.67%,
     rgba(60, 103, 84, 0) 100%
-  );
+  ); */
   /* width: 100vw; */
 }
 .section2.-ideaPage {
@@ -726,6 +768,46 @@ body::-webkit-scrollbar,
     display: flex;
     width: fit-content;
   }
+  .bg {
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    background-image: url("~/assets/green_filter01.png");
+    background-size: cover;
+    /* background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%); */
+    transition: 1s ease-out;
+  }
+
+  .text_bg {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    background-image: url("~/assets/green_text.png");
+    background-repeat: repeat;
+    background-size: contain;
+    opacity: 0;
+    transition: 1s ease-out;
+  }
+
+  .is-bgActive .text_bg {
+    opacity: 1;
+  }
+  .is-bgActive .bg {
+    content: "";
+    background-image: url("~/assets/green_filter02.png");
+  }
 
   .section {
     flex-shrink: 0;
@@ -733,15 +815,20 @@ body::-webkit-scrollbar,
     /* height: 100vh; */
     display: grid;
     place-items: center;
-    background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%);
-  }
-  .section2 {
-    background: radial-gradient(
+    /* background: radial-gradient(
       62.49% 42.49% at 7.01% 12.22%,
       rgba(60, 103, 84, 0.7) 0%,
       rgba(60, 103, 84, 0.21) 65.63%,
       rgba(60, 103, 84, 0) 100%
-    );
+    ); */
+  }
+  .section2 {
+    /* background: radial-gradient(
+      62.49% 42.49% at 7.01% 12.22%,
+      rgba(60, 103, 84, 0.7) 0%,
+      rgba(60, 103, 84, 0.21) 65.63%,
+      rgba(60, 103, 84, 0) 100%
+    ); */
 
     flex-shrink: 0;
     padding: 0;

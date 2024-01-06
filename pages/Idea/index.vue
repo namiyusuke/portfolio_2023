@@ -29,7 +29,8 @@ gsap.registerPlugin(ScrollTrigger);
  */
 // リスナー登録
 if (process.browser) {
-  onMounted(() => {
+  onMounted(async () => {
+    await nextTick();
     const listener = (event: any) => {
       // リサイズ時に行う処理
       if (event.matches) {
@@ -45,6 +46,7 @@ if (process.browser) {
           // クリック時に目的の箇所までスクロールする
           anchor?.addEventListener("click", (e) => {
             // urlを変更しないようにする
+            console.log(element);
             e.preventDefault();
             // スクロール
             lenis.scrollTo(element);
@@ -55,6 +57,7 @@ if (process.browser) {
         gsap.ticker.add((time: number) => {
           lenis.raf(time * 1000);
         });
+      } else {
       }
     };
 
@@ -114,7 +117,8 @@ onMounted(() => {
 // });
 </script>
 <template>
-  <NuxtLayout>
+  <div class="">
+    <!-- <NuxtLayout> -->
     <div class="idea__bg">
       <div class="section2 -ideaPage js-section">
         <div class="idea__all">
@@ -142,7 +146,8 @@ onMounted(() => {
         </div>
       </div>
     </div>
-  </NuxtLayout>
+    <!-- </NuxtLayout> -->
+  </div>
 </template>
 
 <style>

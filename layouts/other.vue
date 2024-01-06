@@ -34,59 +34,61 @@ if (process.browser) {
 </script>
 
 <template>
-  <header>
-    <nav class="header__nav">
-      <h2 class="visuallyHidden">サイト内メニュー</h2>
-      <a href="#main" class="visuallyHidden">本文にスキップ</a>
-      <div :class="{ 'is-drawerActive': drawerTaget }">
-        <div class="header__inner">
-          <button
-            type="button"
-            @click="toggle"
-            class="ol-button hamburger js-drawer"
-            :aria-expanded="drawerTaget"
-            aria-controls="drawer"
-          >
-            <span class="hamburger__label">Menu</span>
-          </button>
-          <div id="drawer" class="drawer">
-            <div class="drawer__inner">
-              <ul id="globalNav" class="globalNav">
-                <li class="globalNav__item">
-                  <NuxtLink to="/" class="globalNav__link" data-scroll-link="idea"
-                    ><span class="text__main js-split" data-split-text>idea</span
-                    ><span class="text__sub js-split" data-split-text>idea</span>
-                  </NuxtLink>
-                </li>
-                <li class="globalNav__item">
-                  <NuxtLink to="/#projects" class="globalNav__link anime" data-scroll-link="projects">
-                    <span class="text__main js-split" data-split-text>projects</span>
-                    <span class="text__sub js-split" data-split-text>projects</span>
-                  </NuxtLink>
-                </li>
-                <li class="globalNav__item">
-                  <NuxtLink to="/#about" class="globalNav__link anime" data-scroll-link="about">
-                    <span class="text__main js-split" data-split-text>about</span>
-                    <span class="text__sub js-split" data-split-text>about</span>
-                  </NuxtLink>
-                </li>
-                <li class="globalNav__item">
-                  <NuxtLink to="mailto:yu.namikawa18@gmail.com" class="globalNav__link anime">
-                    <span class="text__main js-split" data-split-text>contact</span>
-                    <span class="text__sub js-split" data-split-text>contact</span>
-                  </NuxtLink>
-                </li>
-              </ul>
+  <div class="">
+    <header>
+      <nav class="header__nav">
+        <h2 class="visuallyHidden">サイト内メニュー</h2>
+        <a href="#main" class="visuallyHidden">本文にスキップ</a>
+        <div :class="{ 'is-drawerActive': drawerTaget }">
+          <div class="header__inner">
+            <button
+              type="button"
+              @click="toggle"
+              class="ol-button hamburger js-drawer"
+              :aria-expanded="drawerTaget"
+              aria-controls="drawer"
+            >
+              <span class="hamburger__label">Menu</span>
+            </button>
+            <div id="drawer" class="drawer">
+              <div class="drawer__inner">
+                <ul id="globalNav" class="globalNav">
+                  <li class="globalNav__item">
+                    <NuxtLink to="/#idea" class="globalNav__link" data-scroll-link="idea"
+                      ><span class="text__main js-split" data-split-text>idea</span
+                      ><span class="text__sub js-split" data-split-text>idea</span>
+                    </NuxtLink>
+                  </li>
+                  <li class="globalNav__item">
+                    <NuxtLink to="/#projects" class="globalNav__link anime" data-scroll-link="projects">
+                      <span class="text__main js-split" data-split-text>projects</span>
+                      <span class="text__sub js-split" data-split-text>projects</span>
+                    </NuxtLink>
+                  </li>
+                  <li class="globalNav__item">
+                    <NuxtLink to="/#about" class="globalNav__link anime" data-scroll-link="about">
+                      <span class="text__main js-split" data-split-text>about</span>
+                      <span class="text__sub js-split" data-split-text>about</span>
+                    </NuxtLink>
+                  </li>
+                  <li class="globalNav__item">
+                    <NuxtLink to="mailto:yu.namikawa18@gmail.com" class="globalNav__link anime">
+                      <span class="text__main js-split" data-split-text>contact</span>
+                      <span class="text__sub js-split" data-split-text>contact</span>
+                    </NuxtLink>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </nav>
-  </header>
-  <slot />
-  <footer class="footer">
-    <p class="footer__copy">@2023 Yusuke Namikawa</p>
-  </footer>
+      </nav>
+    </header>
+    <slot />
+    <!-- <footer class="footer">
+      <p class="footer__copy">@2023 Yusuke Namikawa</p>
+    </footer> -->
+  </div>
 </template>
 
 <style>

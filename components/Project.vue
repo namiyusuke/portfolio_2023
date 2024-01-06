@@ -13,7 +13,7 @@ const { data } = await useMicroCMSGetList<aaa>({
 
 <template>
   <div class="section3" id="projects">
-    <div class="projects__decorate-text">
+    <!-- <div class="projects__decorate-text">
       <p>
         <span class="u-wbr">After studying psychology at university and graduating</span>
         <span class="u-wbr"> from a vocational school, he worked at a children's home </span> as a social worker
@@ -24,7 +24,7 @@ const { data } = await useMicroCMSGetList<aaa>({
         ><span class="u-wbr"> JS and CSS, markupHobbies:</span>
         Bouldering, muscle training, sauna, cooking
       </p>
-    </div>
+    </div> -->
     <!-- <div class="projects__decorate-wrapper">
       <p class="projects__decorate-name">Yusuke Namikawa</p>
       <p>
@@ -57,10 +57,10 @@ const { data } = await useMicroCMSGetList<aaa>({
       </div>
     </div>
     <!-- /.l-wrapper -->
-    <div class="projects__decorate_wrapper">
+    <!-- <div class="projects__decorate_wrapper">
       <p class="projects__decorate1">animation animation animation animation animation animation animation animation</p>
       <p class="projects__decorate2">interaction interaction interaction interaction interaction interaction</p>
-    </div>
+    </div> -->
   </div>
 </template>
 <style>

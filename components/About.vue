@@ -1,6 +1,6 @@
 <template>
   <div class="section4 js-section" id="about">
-    <p class="about__decorate2">
+    <!-- <p class="about__decorate2">
       <span class="about__decorate2_bottom"
         ><span>interaction</span><span>interaction</span><span>interaction</span><span>interaction</span
         ><span>interaction</span><span>interaction</span><span>interaction</span></span
@@ -9,7 +9,7 @@
         ><span>animation</span><span>animation</span><span>animation</span><span>animation</span><span>animation</span
         ><span>animation</span><span>animation</span></span
       >
-    </p>
+    </p> -->
     <div class="l-wrapper">
       <div class="about__wrapper">
         <div class="heading__line">
