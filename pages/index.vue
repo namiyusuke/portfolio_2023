@@ -57,7 +57,7 @@ onMounted(async () => {
       const boxes = document.querySelectorAll(".js-bg");
       const options = {
         root: null, // 今回はビューポートをルート要素とする
-        rootMargin: "0% -10%", // ビューポートの中心を判定基準にする
+        rootMargin: "0% -50%", // ビューポートの中心を判定基準にする
         threshold: 0, // 閾値は0
       };
       const observer = new IntersectionObserver(doWhenIntersect, options);
@@ -86,7 +86,7 @@ onMounted(async () => {
       const boxes = document.querySelectorAll(".js-bg");
       const options = {
         root: null, // 今回はビューポートをルート要素とする
-        rootMargin: "-40% 0%", // ビューポートの中心を判定基準にする
+        rootMargin: "-50% 0%", // ビューポートの中心を判定基準にする
         threshold: 0, // 閾値は0
       };
       const observer = new IntersectionObserver(doWhenIntersect, options);
@@ -102,7 +102,6 @@ onMounted(async () => {
       function doWhenIntersect(entries) {
         // 交差検知をしたもののなかで、isIntersectingがtrueのDOMを色を変える関数に渡す
         entries.forEach((entry) => {
-          console.log(entry);
           if (entry.isIntersecting || entry.boundingClientRect.top < 0) {
             document.documentElement.classList.add("is-bgActive");
           } else {
