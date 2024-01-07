@@ -86,7 +86,7 @@ onMounted(async () => {
       const boxes = document.querySelectorAll(".js-bg");
       const options = {
         root: null, // 今回はビューポートをルート要素とする
-        rootMargin: "-10% 0%", // ビューポートの中心を判定基準にする
+        rootMargin: "-40% 0%", // ビューポートの中心を判定基準にする
         threshold: 0, // 閾値は0
       };
       const observer = new IntersectionObserver(doWhenIntersect, options);
