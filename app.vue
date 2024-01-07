@@ -975,8 +975,8 @@ body::-webkit-scrollbar,
     margin-top: 0;
   }
   .idea__item figure {
-    width: min(calc(var(--vh) * 59.21 - 160px), 363px);
-    height: min(calc(var(--vh) * 40.78 - 116px), 250px);
+    width: min(calc(var(--vh) * 59.21 - 160px), 726px);
+    height: min(calc(var(--vh) * 40.78 - 116px), 500px);
     aspect-ratio: 363/250;
     overflow: hidden;
   }

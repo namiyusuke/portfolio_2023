@@ -213,8 +213,8 @@ const { data } = await useMicroCMSGetList<aaa>({
     display: block;
   }
   .projects__item figure {
-    width: min(calc(var(--vh) * 41.472), 338px);
-    height: min(calc(var(--vh) * 58.5276), 477px);
+    width: min(calc(var(--vh) * 41.472), 676px);
+    height: min(calc(var(--vh) * 58.5276), 954px);
     aspect-ratio: 363/250;
     overflow: hidden;
     position: relative;
