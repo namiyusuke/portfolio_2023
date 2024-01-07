@@ -197,8 +197,8 @@ if (process.browser) {
   }
   .hero___thumbnail {
     /* left: 527px; */
-    top: 300px;
-    bottom: 0;
+    /* top: ; */
+    bottom: calc(107 / 900 * 100vh);
     right: calc(207 / 1440 * 100vw);
     /* right: calc(206 / 1440 * 100vw); */
   }
