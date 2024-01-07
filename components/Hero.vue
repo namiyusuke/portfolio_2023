@@ -165,7 +165,7 @@ if (process.browser) {
           </g>
         </svg>
       </div>
-      <div class="hero__copy">@2023 Yusuke Namikawa</div>
+      <div class="hero__copy">@2024 Yusuke Namikawa</div>
     </div>
   </div>
 </template>

@@ -117,8 +117,9 @@ onMounted(() => {
 // });
 </script>
 <template>
-  <div class="">
+  <div>
     <!-- <NuxtLayout> -->
+    <div class="bg"></div>
     <div class="idea__bg">
       <div class="section2 -ideaPage js-section">
         <div class="idea__all">
@@ -157,12 +158,42 @@ onMounted(() => {
   padding-top: 32px;
   padding-bottom: 370px;
 }
+.bg {
+  position: fixed;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  content: "";
+  background-image: url("~/assets/green_filter02-sp.png");
+  background-size: cover;
+  /* background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%); */
+  transition: background-image 2s ease;
+}
 @media screen and (min-width: 1024px) {
   .idea__all {
     display: flex;
     width: fit-content;
     height: 100vh;
     padding: 102px 306px 166px 306px;
+  }
+  .bg {
+    position: fixed;
+    z-index: -2;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    background-image: url("~/assets/green_filter02.png");
+    background-size: cover;
+    /* background: linear-gradient(103deg, rgba(60, 103, 84, 0.7) 11.5%, rgba(60, 103, 84, 0) 83.71%); */
+    transition: background-image 2s ease;
   }
 }
 .idea__allInner {

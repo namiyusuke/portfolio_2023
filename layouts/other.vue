@@ -86,7 +86,7 @@ if (process.browser) {
     </header>
     <slot />
     <!-- <footer class="footer">
-      <p class="footer__copy">@2023 Yusuke Namikawa</p>
+      <p class="footer__copy">@2024 Yusuke Namikawa</p>
     </footer> -->
   </div>
 </template>

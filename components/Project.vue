@@ -7,7 +7,7 @@ type aaa = {
 };
 const { data } = await useMicroCMSGetList<aaa>({
   endpoint: "works",
-  queries: { limit: 4 },
+  queries: { limit: 5 },
 });
 </script>
 
@@ -31,7 +31,7 @@ const { data } = await useMicroCMSGetList<aaa>({
         <span class="u-wbr">Born in 1993 in Kyoto Prefecture. After graduating</span
         ><span class="u-wbr"> from university and gaining experience as a social </span
         ><span class="u-wbr"> worker, I started working as a front-end engineer at </span>a production company from
-        October 2021. <span class="u-wbr">Belongs to Acorder Co., Ltd. since November 2023.</span>
+        October 2021. <span class="u-wbr">Belongs to Acorder Co., Ltd. since November 2024.</span>
       </p>
       <p>Responsible for the implementation of the independent production team "Attcraft".</p>
     </div> -->
