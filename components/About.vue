@@ -21,12 +21,11 @@
               <span class="about__en">Yusuke Namikawa</span><span class="about__ja">並河祐輔</span>
             </h3>
             <div class="about__text">
-              <span class="u-wbr">大学にて心理学を学びのちに専門学校を卒業後、社会福祉士として児童養護施設で働く</span>
-              <span class="u-wbr">2021年10月より制作会社でフロントエンドエンジニアとして勤務。</span>
+              <span class="u-wbr">大学卒業後、社会福祉士として経験を詰んだ後</span
+              >2021年10月より制作会社にてwebエンジニアになる.
               <span class="u-wbr"
                 >得意なこと・できること：jsやcssを用いたアニメーション・インタラクション、マークアップ</span
               >
-              <span class="u-wbr">趣味：ボルダリングや筋トレ、サウナ、料理</span>
               <div class="about__snsWrapper">
                 <p class="about__snsItem"><a href="https://twitter.com/yusuke_nm" target="_blank">X</a></p>
                 <p class="about__snsItem"><a href="https://codepen.io/nami__nami" target="_blank">Codepen</a></p>
@@ -108,7 +107,7 @@
     row-gap: 0px;
     margin-bottom: 1rem;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end;
   }
   .about__en {
     font-size: calc(36 / 16 * 1rem);
@@ -138,6 +137,10 @@
   }
   .about__snsItem {
     margin-top: calc(48 / 16 * 1rem);
+  }
+  .about__ja {
+    position: relative;
+    bottom: 4px;
   }
 }
 .about__snsItem a {
