@@ -869,8 +869,8 @@ body::-webkit-scrollbar,
   margin-top: calc(20 / 16 * 1rem);
 }
 .idea__item img {
-  width: 110%;
-  height: 110%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 .idea__item a:hover {
