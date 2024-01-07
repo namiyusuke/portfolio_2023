@@ -56,7 +56,7 @@ const { data } = await useMicroCMSGetList<Idea>({
               <a :href="idea.url" target="_blank">
                 <div class="idea__thumbnail">
                   <figure>
-                    <img :src="idea.image?.url" alt="" />
+                    <NuxtPicture provider="imgix" legacy-format="jpeg" fit="crop" :src="idea.image?.url" alt="" />
                   </figure>
                 </div>
               </a>

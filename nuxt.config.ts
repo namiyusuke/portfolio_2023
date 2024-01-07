@@ -19,7 +19,12 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["nuxt-microcms-module", "@nuxtjs/google-fonts"],
+  modules: ["nuxt-microcms-module", "@nuxtjs/google-fonts", "@nuxt/image"],
+  image: {
+    imgix: {
+      baseURL: "",
+    },
+  },
   microCMS: {
     // mode: process.env.NODE_ENV === "production" ? "server" : "all",
     serviceDomain: process.env.MICROCMS_SERVICE_DOMAIN,
