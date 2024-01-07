@@ -48,7 +48,7 @@ const { data } = await useMicroCMSGetList<Idea>({
     <div class="l-wrapper">
       <div class="idea__inner">
         <div class="heading__line">
-          <h2 class="heading">idea</h2>
+          <h2 class="heading -idea">idea</h2>
         </div>
         <div class="idea__body">
           <ul class="idea__list">

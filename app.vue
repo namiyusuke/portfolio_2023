@@ -648,6 +648,9 @@ button:focus-visible {
   z-index: 1;
   /* text-stroke: 2px #000; */
 }
+.heading.-idea {
+  margin-bottom: 0;
+}
 .heading__line {
   height: 100%;
   overflow: hidden;

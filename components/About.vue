@@ -74,7 +74,7 @@
   }
   .about__wrapper {
     height: 100%;
-    padding: 102px 360px 202px 360px;
+    padding: calc(102 / 900 * 100vh) 360px 202px 360px;
   }
   .about__left {
     width: calc(572 / 1440 * 100vw);
