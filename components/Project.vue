@@ -45,7 +45,7 @@ const { data } = await useMicroCMSGetList<aaa>({
             <a :href="project.url" target="_blank">
               <div class="projects__border">
                 <figure>
-                  <NuxtPicture provider="imgix" legacy-format="jpeg" fit="crop" :src="idea.image?.url" alt="" />
+                  <NuxtPicture provider="imgix" legacy-format="jpeg" fit="crop" :src="project.image?.url" alt="" />
                 </figure>
               </div>
               <p>
