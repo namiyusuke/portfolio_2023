@@ -29,8 +29,8 @@ import { gsap } from "gsap";
 import Lenis from "@studio-freight/lenis";
 import { ref, onMounted } from "vue";
 useHead({
-  title: "portfolio-nami",
-  meta: [{ name: "description", content: "My amazing site." }],
+  title: "portfolio-nami2024",
+  meta: [{ name: "description", content: "これは並河祐輔のポートフォリオサイトです" }],
 });
 
 gsap.registerPlugin(ScrollTrigger);

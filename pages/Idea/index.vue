@@ -8,8 +8,8 @@ definePageMeta({
   layout: "other",
 });
 useHead({
-  title: "idea App",
-  meta: [{ name: "description", content: "My amazing site." }],
+  title: "portfolio-nami2024",
+  meta: [{ name: "description", content: "これは並河祐輔のポートフォリオサイトです" }],
 });
 import type { MicroCMSImage } from "microcms-js-sdk";
 type Idea = {
