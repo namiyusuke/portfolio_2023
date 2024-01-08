@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @mousemove="mouseStalker">
     <NuxtLayout>
       <NuxtPage />
     </NuxtLayout>
@@ -15,12 +15,13 @@
       </div>
       <div class="indicator"></div>
     </div>
+    <!-- <div @mousemove="mouseStalker()"> -->
     <div class="js-mouse-stalker">
       <div class="js-mouse-stalker__cursor" :style="{ top: mouseY - 300 + 'px', left: mouseX - 300 + 'px' }"></div>
       <div class="js-mouse-stalker__follower"></div>
     </div>
-    <div @mousemove="mouseStalker"></div>
   </div>
+  <!-- </div> -->
 </template>
 <script setup lang="ts">
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -155,7 +156,6 @@ if (process.browser) {
 // Lenis
 
 // if (process.browser) {
-
 // }
 
 // onMounted(() => {
@@ -164,9 +164,12 @@ const mouseY = ref(0);
 const posX = ref(0);
 const posY = ref(0);
 const mouseStalker = (e: any) => {
+  console.log(e.pageX);
   mouseX.value = e.pageX;
   mouseY.value = e.pageY;
 };
+// mouseStalker();
+// });
 </script>
 
 <style>
