@@ -164,7 +164,6 @@ const mouseY = ref(0);
 const posX = ref(0);
 const posY = ref(0);
 const mouseStalker = (e: any) => {
-  console.log(e.pageX);
   mouseX.value = e.pageX;
   mouseY.value = e.pageY;
 };

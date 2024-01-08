@@ -17,7 +17,6 @@ const { data } = await useMicroCMSGetList<Idea>({
   endpoint: "idea",
   queries: { limit: 8 },
 });
-console.log(data);
 
 let progress = ref(0);
 onMounted(async () => {
@@ -41,7 +40,6 @@ onMounted(async () => {
           let element = document.querySelector(`#${id}`);
           // クリック時に目的の箇所までスクロールする
           anchor?.addEventListener("click", (e) => {
-            console.log(element);
             // urlを変更しないようにする
             e.preventDefault();
             // スクロール

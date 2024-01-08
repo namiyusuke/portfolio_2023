@@ -73,7 +73,6 @@ onMounted(async () => {
       function doWhenIntersect(entries) {
         // 交差検知をしたもののなかで、isIntersectingがtrueのDOMを色を変える関数に渡す
         entries.forEach((entry) => {
-          console.log(entry);
           if (entry.isIntersecting || entry.boundingClientRect.left < 0) {
             document.documentElement.classList.add("is-bgActive");
           } else {

@@ -46,7 +46,7 @@ if (process.browser) {
           // クリック時に目的の箇所までスクロールする
           anchor?.addEventListener("click", (e) => {
             // urlを変更しないようにする
-            console.log(element);
+
             e.preventDefault();
             // スクロール
             lenis.scrollTo(element);
