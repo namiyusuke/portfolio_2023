@@ -19,6 +19,7 @@ type Idea = {
 };
 const { data } = await useMicroCMSGetList<Idea>({
   endpoint: "idea",
+  queries: { limit: 20 },
 });
 
 // =============================
