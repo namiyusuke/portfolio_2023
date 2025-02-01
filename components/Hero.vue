@@ -198,7 +198,7 @@ if (process.browser) {
   .hero___thumbnail {
     /* left: 527px; */
     /* top: ; */
-    bottom: calc(107 / 900 * 100vh);
+    bottom: calc(230 / 900 * 100vh);
     right: calc(207 / 1440 * 100vw);
     /* right: calc(206 / 1440 * 100vw); */
   }
@@ -221,7 +221,7 @@ if (process.browser) {
 }
 .hero__copy {
   position: absolute;
-  left: -70px;
+  left: -52px;
   bottom: 8%;
   color: var(--color-white);
   transform: rotate(-90deg) translateX(60%);
